@@ -56,9 +56,9 @@ dependencies {
 	implementation 'com.google.code.findbugs:jsr305:3.0.2'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
 
 // Query DSL 설정 //전역으로 설정할 것
 def generated="src/main/generated"
