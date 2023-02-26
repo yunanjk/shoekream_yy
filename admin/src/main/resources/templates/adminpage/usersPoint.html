@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head 시작 -->
+<div th:replace="fragment/adminhead :: head"></div>
+<!--head 끝 -->
+<body>
+
+<!-- header 시작 -->
+<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+<!-- header 끝 -->
+<!-- right-sidebar 시작 -->
+<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+<!-- right-sidebar 끝 -->
+<!-- left-side-bar 시작 -->
+<div th:replace="fragment/adminnavbar :: navbar"></div>
+<!-- left-side-bar 끝 -->
+<div class="main-container">
+  <div class="pd-ltr-20 xs-pd-20-10">
+    <div class="min-height-200px">
+      <!-- Simple Datatable start -->
+      <div class="card-box mb-30" id="point_object">
+        <div class="pd-20">
+          <h4 class="text-blue h4">포인트 리스트</h4>
+        </div>
+        <div class="pb-20">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="DataTables_Table_0_length" style="padding-bottom: 5px; padding-left: 20px;">
+                <div style="display: flex;">
+                  <i class="icon-copy bi bi-card-list"></i>
+                  <p th:text="'사용자 포인트 ' + ${points.totalElements} + '건'" style="margin-left: 10px;"></p>
+                </div>
+                <div style="display: flex;">
+                  <i class="icon-copy bi bi-book"></i>
+                  <p th:text="'총 ' + ${points.totalPages} + '페이지 중 ' + ${(points.number)+1} + '페이지'" style="margin-left: 10px;"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="DataTables_Table_0_filter" class="dataTables_filter" style="text-align: right;padding-left: 15px; padding-right: 15px;">
+                <label style=" font-weight: normal; white-space: nowrap; text-align: left; display: flex; align-items: center; justify-content: flex-end;">search:
+                  <input id="search_box" type="search" class="form-control form-control-sm" aria-controls="DataTables_Table_0" style="margin-left: 0.5em; width: auto;">
+                </label>
+              </div>
+            </div>
+          </div>
+          <table class="data-table table stripe hover nowrap">
+            <thead>
+            <tr>
+              <th class="table-plus datatable-nosort">Name</th>
+              <th>Email</th>
+              <th>Hp</th>
+              <th>포인트 유형</th>
+              <th>지급 포인트</th>
+            </tr>
+            </thead>
+            <tbody id="list_body">
+            <tr id="tr_list">
+              <td class="table-plus" id="list_name">김사과</td>
+              <td id="list_email">apple</td>
+              <td id="list_hp">010-1111-1111</td>
+              <td id="list_reason">참여</td>
+              <td id="list_point">정상</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite"></div></div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">
+                      <i class="ion-chevron-left"></i>
+                    </a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">
+                      <i class="ion-chevron-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Simple Datatable End -->
+    </div>
+
+  </div>
+</div>
+<!-- js -->
+<div th:replace="fragment/adminjs :: js"></div>
+<!-- js -->
+
+</body>
+</html>

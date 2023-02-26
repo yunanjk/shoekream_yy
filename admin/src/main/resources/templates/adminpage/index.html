@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<!--head 시작 -->
+	<div th:replace="fragment/adminhead :: head"></div>
+	<!-- chart.js cdn -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+	<!--head 끝 -->
+	<body>
+
+		<!-- header 시작 -->
+		<div th:replace="fragment/adminheader :: header(${sessionInfo})"></div>
+		<!-- header 끝 -->
+		<!-- right-sidebar 시작 -->
+		<div th:replace="fragment/adminrightsidebar :: rightsidebar"></div>
+		<!-- right-sidebar 끝 -->
+		<!-- left-side-bar 시작 -->
+		<div th:replace="fragment/adminnavbar :: navbar"></div>
+		<!-- left-side-bar 끝 -->
+
+		<div class="main-container">
+			<div class="pd-ltr-20">
+				<div class="row">
+					<div class="col-xl-3 mb-30">
+						<div class="card-box height-100-p widget-style1">
+							<div class="d-flex flex-wrap align-items-center">
+								<div class="progress-data">
+									<div id="chart"><img src="/img/admin/user.png"/></div>
+								</div>
+								<div class="widget-data">
+									<div class="h4 mb-0" id="userCount">2020</div>
+									<div class="weight-600 font-14">user</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 mb-30">
+						<div class="card-box height-100-p widget-style1">
+							<div class="d-flex flex-wrap align-items-center">
+								<div class="progress-data">
+									<div id="chart2"><img src="/img/admin/product.png"/></div>
+								</div>
+								<div class="widget-data">
+									<div class="h4 mb-0" id="productCount">42345</div>
+									<div class="weight-600 font-14">product</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 mb-30">
+						<div class="card-box height-100-p widget-style1">
+							<div class="d-flex flex-wrap align-items-center">
+								<div class="progress-data">
+									<div id="chart3"><img src="/img/admin/board.png"/></div></div>
+								<div class="widget-data">
+									<div class="h4 mb-0" id="feedCount">350</div>
+									<div class="weight-600 font-14">feed</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 mb-30">
+						<div class="card-box height-100-p widget-style1">
+							<div class="d-flex flex-wrap align-items-center">
+								<div class="progress-data">
+									<div id="chart4"><img src="/img/admin/conclusion.png"/></div>
+								</div>
+								<div class="widget-data">
+									<div class="h4 mb-0" id="conclusionCount">1940</div>
+									<div class="weight-600 font-14">conclusion</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<!-- 그래프 -->
+					<div class="col-xl-8 mb-30">
+						<div class="card-box height-100-p pd-20">
+							<h2 class="h4 mb-20">sales</h2>
+<!--							<div id="chart5"></div>-->
+							<div class="graph">
+								<canvas id="graph" width="700" height="400" style="display: block; margin: 0 auto;"></canvas>
+							</div>
+						</div>
+					</div>
+					<!-- 인기 스타일 게시글 -->
+					<div class="col-xl-4 mb-30">
+						<div class="card-box height-100-p pd-20">
+							<div>
+								<h2 class="h4 mb-20" style="float: left;">top posting</h2>
+								<div class="replyCnt" style="width: 30px; float: right; display: flex; margin-right: 15px;">
+									<img src="/img/styleImg/comment_icon.png"/>
+									<div style="padding-left: 5px; font-weight: bold;">cnt</div>
+								</div>
+								<div class="likeCnt" style="width: 30px; float: right; display: flex; margin-right: 30px;">
+									<img src="/img/styleImg/like_icon.png"/>
+									<div style="padding-left: 5px; font-weight: bold;">cnt</div>
+								</div>
+							</div>
+							<div id="chart6"><img src="/img/styleImg/feed1.jpeg"></div>
+						</div>
+					</div>
+				</div>
+				<div class="card-box mb-30">
+					<h2 class="h4 pd-20">Best Selling Products Top 10</h2>
+					<table class="data-table table nowrap">
+						<thead>
+						<tr>
+							<th class="table-plus datatable-nosort">상품사진</th>
+							<th>상품명</th>
+							<th>사이즈</th>
+							<th>거래수</th>
+							<th>총거래액</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="table-plus">
+								<img
+										src="vendors/images/northface.png"
+										width="140"
+										height="140"
+										alt=""
+								/>
+							</td>
+							<td>
+								<h5 class="font-16">The North Face 1996 Eco Nuptse Jacket Black</h5>
+								노스페이스 1996 에코 눕시 자켓 블랙
+							</td>
+							<td>100</td>
+							<td>3</td>
+							<td>730,000원</td>
+
+						</tr>
+						<tr>
+							<td class="table-plus">
+								<img
+										src="vendors/images/nike.png"
+										width="140"
+										height="140"
+										alt=""
+								/>
+							</td>
+							<td>
+								<h5 class="font-16">
+									Jordan 1 Retro High OG Chicago 2022</h5>
+								조던 1 레트로 하이 OG 시카고 2022
+							</td>
+							<td>270</td>
+							<td>1</td>
+							<td>425,000</td>
+
+						</tr>
+						<tr>
+							<td class="table-plus">
+								<img
+										src="vendors/images/apple.png"
+										width="140"
+										height="140"
+										alt=""
+								/>
+							</td>
+							<td>
+								<h5 class="font-16">Apple AirPods Max Silver (Korean Ver.)</h5>
+								애플 에어팟 맥스 실버 (국내 정식 발매 제품)
+							</td>
+							<td>ONE SIZE</td>
+
+							<td>10</td>
+							<td>6,752,000원</td>
+						</tr>
+						<tr>
+							<td class="table-plus">
+								<img
+										src="vendors/images/ugg.png"
+										width="140"
+										height="140"
+										alt=""
+								/>
+							</td>
+							<td>
+								<h5 class="font-16">(W) UGG Classic Mini II Boots Chestnut</h5>
+								(W) 어그 클래식 미니 2 부츠 체스트넛
+							</td>
+							<td>230</td>
+							<td>2</td>
+							<td>580,000</td>
+						</tr>
+						<tr>
+							<td class="table-plus">
+								<img
+										src="vendors/images/ader.png"
+										width="140"
+										height="140"
+										alt=""
+								/>
+							</td>
+							<td>
+								<h5 class="font-16">Ader Error x Zara Patchwork Oversize Knit Sweater Multicolor</h5>
+								아더에러 x 자라 패치워크 오버사이즈 니트 스웨터 멀티컬러
+							</td>
+							<td>M</td>
+							<td>1</td>
+							<td>270,000</td>
+						</tr>
+						</tbody>
+					</table>
+
+				</div>
+				
+			</div>
+		</div>
+
+		<script src="vendors/scripts/core.js"></script>
+		<script src="vendors/scripts/script.min.js"></script>
+		<script src="vendors/scripts/process.js"></script>
+		<script src="vendors/scripts/layout-settings.js"></script>
+		<script src="src/plugins/apexcharts/apexcharts.min.js"></script>
+<!--		<script src="vendors/scripts/dashboard.js"></script>-->
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+			let conclusion = [[${conclusion}]];
+			// console.log(conclusion);
+			let sale = [[${sale}]];
+			// console.log(sale);
+
+			let now = new Date();
+			let oneyear = new Date();
+
+			function dateFormat(date) {
+				let dateFormat = date.getFullYear() +
+						'-' + ( (date.getMonth()+1) < 9 ? "0" + (date.getMonth()+1) : (date.getMonth()+1) )
+				return dateFormat;
+			}
+
+			let nowDate = dateFormat(new Date());
+			console.log("현재: " + nowDate);
+
+			let oneYearAgo = dateFormat(new Date(oneyear.setFullYear(oneyear.getFullYear() - 1)));
+			console.log("일년전: " + oneYearAgo);
+
+			// 📌 date -> conclusion total count
+			let arr1 = [];
+			for(let key in conclusion) {
+				arr1.push([conclusion[key].createdAt.substring(0, 7)]); // yyyy-mm 으로 포맷 변경
+			}
+			// console.log(arr1);
+
+			let arr2 = [];
+			for(let i=0; i<arr1.length; i++){
+				if(arr1[i][0] >= oneYearAgo){ // 1년전 날짜만
+					arr2.push(arr1[i][0]);
+				}
+			}
+			// console.log(arr2);
+
+			function getCount(array) {
+				return array.reduce((pv, cv)=>{ // pv=key값으로 날짜, cv=value값으로 카운트
+					pv[cv] = (pv[cv] || 0) + 1; // 자바스크립트 단축평가
+					return pv;
+				}, {});
+			}
+			getCount(arr2);
+			// console.log(getCount(arr2));
+
+			let arr3 = [];
+			arr3 = Object.entries(getCount(arr2)); // object -> array로 변경
+
+			// 날짜 오름차순 정렬
+			arr3 = arr3.sort(function compare(a, b) {
+					let dateA = new Date(a[0]).getTime();
+					let dateB = new Date(b[0]).getTime();
+					return dateA > dateB ? 1 : -1;
+				});
+			// console.log(arr3);
+
+			let Date1 = [];
+			let Count1 = [];
+			for(let i = 0; i<arr3.length; i++){
+				Date1.push(arr3[i][0]);
+				Count1.push(arr3[i][1]);
+			}
+			console.log(Date1);
+			console.log(Count1);
+
+
+			// 📌 date -> conclusion total price
+			let arr4 = [];
+			for(let key in sale) {
+				arr4.push([sale[key].createdAt.substring(0, 7), sale[key].price.replaceAll(",","").replace("원","").substring()]); // yyyy-mm 으로 포맷 변경
+			}
+			// console.log(arr4);
+
+			let Price1  = [];
+			for(let i = 0; i<arr4.length; i++){
+				Price1.push(arr4[i][1]);
+			}
+			console.log(Price1);
+
+
+			let graphData = {
+				labels: Date1, // x축
+				datasets: [{
+					type: "bar",
+					label: "total count",
+					data: Count1, // y축 1 -> 한달 체결내역 토탈 카운트
+					yAxisID: 'y-left',
+					backgroundColor: 'rgb(21,20,189)', // 차트 배경 색
+					borderColor: 'rgb(21,20,189)', // 라인 색
+					borderWidth: 1, // 라인 넓이
+					pointRadius: 0, // 포인터 없애기,
+				},{
+					label: "total price",
+					data: Price1, // y축 2 -> 한달 체결내역 토탈 금액
+					type: "bar",
+					yAxisID: 'y-right',
+					backgroundColor: 'rgb(101,150,70)', // 차트 배경 색
+					borderColor: 'rgb(101,150,70)', // 라인 색
+					borderWidth: 1, // 라인 넓이
+					pointRadius: 0, // 포인터 없애기
+				}]
+			};
+
+			let graphOptions = {
+				maxBarThickness: 30,
+				responsive: false, // 사이즈 자동 조절 가능 여부
+				scales: {
+					x: {
+						title: {
+							display: true,
+						}
+					},
+					"y-right": {
+						type: 'linear',
+						position: 'right',
+						title: {
+							display: true,
+						},
+						grid: {
+							display: false
+						},
+						// ticks: {
+						// 	callback: function(value, index, values) {
+						// 		return value + ' 원';
+						// 	}
+						// }
+					},
+					"y-left": {
+						type: 'linear',
+						position: 'left',
+						title: {
+							display: true,
+						},
+						grid: {
+							display: false
+						}
+					},
+				}
+			};
+
+			let myChart;
+			window.addEventListener('DOMContentLoaded', function() {
+				let ctx = document.getElementById("graph").getContext("2d");
+				myChart = new Chart(ctx, {
+					type: "bar",
+					data: graphData,
+					options: graphOptions
+				});
+			});
+
+			/*]]>*/
+		</script>
+	</body>
+</html>

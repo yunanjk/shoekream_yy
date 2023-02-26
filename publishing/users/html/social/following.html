@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>STYLE | SHEOKREAM</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://kream.co.kr/favicon.ico">
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--axios cdn -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/social/following.css">
+
+    
+
+</head>
+
+
+<body>
+    <div id="__nuxt">
+        <div id="__layout">
+            <div tabindex="0" class="wrap win_os lg">
+                <div>
+                    <!-- 헤더 시작 -->
+                    <header th:fragment="head">
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link rel="stylesheet" href="../../css/social/style_header.css">
+                        <div >
+                          <div class="social header lg no_line">
+                            <div class="header_top">
+                              <div class="top_inner">
+                                <ul class="top_list">
+                                  <li class="top_item">
+                                    <a href="/notice" class="top_link"> 고객센터 </a>
+                                  </li>
+                                  <li class="top_item">
+                                    <a href="/my/wish" class="top_link"> 관심상품 </a>
+                                  </li>
+                                  <li class="top_item">
+                                    <a href="/my" class="top_link"> 마이페이지 </a>
+                                  </li>
+                                  <li class="top_item" style="display: none;">
+                                    <a href="/login" class="top_link"> 로그인 </a>
+                                  </li>
+                                  <li class="top_item">
+                                    <a href="/" class="top_link"> 로그아웃 </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="header_main">
+                              <div class="main_inner">
+                                <h1 >
+                                  <a href="/" aria-label="홈" class="logo">
+                                    <img src="../../img/shoekream_logo.png" class="logo-kream icon sprite-icons">
+                                  </a>
+                                </h1>
+                                <div class="gnb_area">
+                                  <nav class="gnb">
+                                    <ul class="gnb_list">
+                                      <li class="gnb_item gnb_on">
+                                        <a href="/social/trending" class="gnb_link"> STYLE </a>
+                                      </li>
+                                      <li class="gnb_item">
+                                        <a href="#" class="gnb_link"> SHOP </a>
+                                      </li><li class="gnb_item">
+                                      <a href="/about" target="_blank" class="gnb_link"> ABOUT </a>
+                                    </li>
+                                    </ul>
+                                  </nav>
+                                  <div class="search_btn_box">
+                                    <a aria-label="검색" href="#" class="btn_search">
+                                      <img src="../../img/search.png" class="nav-search icon sprite-icons">
+                                    </a>
+                                  </div>
+                                </div>
+                                <div style="display: none;">
+                                  <div class="search_area" value="">
+                                    <div class="search">
+                                      <img src="../../img/search.png">
+                                      <input type="text" placeholder="" title="검색창" class="input_search show_placeholder_on_focus">
+                                      <button class="btn_search_delete" style="display: none;">
+                      <!--                  <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-delete-circle">-->
+                      <!--                    <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-delete-circle">-->
+                      <!--                    </use>-->
+                      <!--                  </svg>-->
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="nav_btn_box">
+                                  <button type="button" aria-label="검색" class="btn_search">
+                      <!--              <svg xmlns="http://www.w3.org/2000/svg" class="ico-search icon sprite-icons">-->
+                      <!--                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-search" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-search">-->
+                      <!--                </use>-->
+                      <!--              </svg>-->
+                                  </button>
+                                  <button type="button" aria-label="메뉴" class="btn_menu">
+                      <!--              <svg xmlns="http://www.w3.org/2000/svg" class="ico-menu icon sprite-icons">-->
+                      <!--                <use href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-menu" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-menu">-->
+                      <!--                </use>-->
+                      <!--              </svg>-->
+                                  </button>
+                                </div>
+                                <div style="display: none;">
+                                  <div class="navigation_wrap">
+                                    <div class="navigation">
+                                      <div class="navigation_inner">
+                                        <ul class="nav_list">
+                                          <li class="nav_item">
+                                            <a href="#" class="nav_link"> STYLE </a>
+                                          </li>
+                                          <li class="nav_item">
+                                            <a href="#" class="nav_link"> SHOP </a>
+                                          </li>
+                                          <li class="nav_item">
+                                            <a href="#" class="nav_link"> 자주 묻는 질문 </a>
+                                          </li>
+                                          <li class="nav_item">
+                                            <a href="#" class="nav_link"> 공지사항 </a>
+                                          </li>
+                                          <li class="nav_item" style="display: none;">
+                                            <a href="#" class="nav_link"> 로그인 </a>
+                                          </li>
+                                          <li class="nav_item">
+                                            <a href="#" class="nav_link"> 마이 페이지 </a>
+                                          </li>
+                                        </ul>
+                                        <div class="nav_logout">
+                                          <button class="btn_logout">로그아웃</button>
+                                          <p class="text_mail"></p>
+                                        </div>
+                                        <div class="nav_download">
+                                          <p class="download_txt">KREAM 앱 설치 후 사용해 보세요!</p>
+                                          <div class="btn_appdown">
+                                            <a href="#" class="btn outline medium"> 앱 다운로드 </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <button type="button" aria-label="닫기" class="btn_nav_close">
+                      <!--                  <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">-->
+                      <!--                    <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-ico-close">-->
+                      <!--                    </use>-->
+                      <!--                  </svg>-->
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!---->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="social_header">
+                            <div class="style_tab_list">
+                              <a href="../../html/social/trending.html" class="tab_item"> 인기 </a>
+                              <a href="../../html/social/newest.html" class="tab_item"> 최신 </a>
+                              <a href="#" class="tab_item tab_on"> 팔로잉 </a>
+                              <a href="../../html/social/myprofile.html" class="tab_item"> 내스타일 </a>
+                            </div>
+                          </div>
+                        </div>
+                      </header>
+                    <!-- 헤더 끝 -->
+                </div>
+                <div social class="container social lg">
+                    <div class="content">
+                        <div>
+<!--                            게시글 하나 시작-->
+                            <div id="p650880" class="social_post_detail">
+                                <div class="social_user_state">
+                                    <a href="#" class="user_state_box"
+                                    ><div class="profile_img_box" >
+                                        <img src="https://kream-phinf.pstatic.net/MjAyMjEyMTRfMjgy/MDAxNjcwOTQ5MDE2ODA1.sZY8kdsLh8z-9PGkP5yNtIm8MrN9vb8mdOXnexGdX1Eg.H7m1ba7ADEwKFDPj4MCpaKeFO9Y2Tyr58d3wM5aZmTYg.JPEG/p_071d33b8729e46fe9f738cc533cc819d.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img" >
+                                    </div>
+                                        <div class="profile_info" >
+                                            <p href="#" class="user_name" >sungmongmong</p>
+                                            <p class="upload_time" >2022년 12월 14일</p>
+                                        </div>
+                                        <!---->
+                                    </a>
+                                </div>
+                                <div class="social_image_box">
+                                    <div class="social_slide">
+                                        <div class="slick-slider slick-initialized">
+                                            <div  class="slick-list">
+                                                <div class="slick-track" style="width: 720px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                                                    <div  tabindex="-1" data-index="0" aria-hidden="false" class="slick-slide slick-active slick-current" style="outline: none; width: 720px;">
+                                                        <div>
+                                                            <div tabindex="-1" class="slide_content" style="width: 100%; display: inline-block;">
+                                                                <div class="slide_item">
+                                                                    <div class="img_box">
+                                                                        <img oncontextmenu="return false" ondragstart="return false" onselectstart="return false" src="https://kream-phinf.pstatic.net/MjAyMjEyMTRfMTU4/MDAxNjcwOTQ5MzI5MDI2.wjJZ9BinAirPGmY3tMs4nx1SVPUFi-o9IpCoSue-0_Eg.w7nYPAruJq8wZO9-t2RBdSKtoSpD9F42_P7tPx6iLkkg.JPEG/p_c0e9c498534348b9be51b7a559a5ef81.jpeg?type=l" alt="소셜이미지" class="social_img">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div class="social_product">
+                                    <div>
+                                        <div class="product_title">
+                                            <span class="title_txt">
+                                                상품 태그
+                                                <strong class="num">3</strong>
+                                                개
+                                            </span>
+                                            <!---->
+                                        </div>
+                                    </div>
+                                    <div class="product_list_area single_list" >
+                                        <ul class="product_list" style="transform:translateX(0px);" >
+                                            <li class="product_item" >
+                                                <a href="/products/66895" class="product_link" >
+                                                    <div class="product" style="background-color:#f4f4f4;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjExMDNfODQg/MDAxNjY3NDU5NDQyMzA4.Qv87-o8-lQ7VBHoL9dILl6wHyv7tNMemP2SJBlpkAPgg.qQQIlpYJrHrZlxHfElIhbMuNA4XOcxXZmUavEBdsUr4g.JPEG/a_5defcc159b9540fab9401382c1e0f442.jpg?type=s_webp" >
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjExMDNfODQg/MDAxNjY3NDU5NDQyMzA4.Qv87-o8-lQ7VBHoL9dILl6wHyv7tNMemP2SJBlpkAPgg.qQQIlpYJrHrZlxHfElIhbMuNA4XOcxXZmUavEBdsUr4g.JPEG/a_5defcc159b9540fab9401382c1e0f442.jpg?type=s" >
+                                                            <img alt="Essentials The Core Collection Hoodie Dark Oatmeal" src="https://kream-phinf.pstatic.net/MjAyMjExMDNfODQg/MDAxNjY3NDU5NDQyMzA4.Qv87-o8-lQ7VBHoL9dILl6wHyv7tNMemP2SJBlpkAPgg.qQQIlpYJrHrZlxHfElIhbMuNA4XOcxXZmUavEBdsUr4g.JPEG/a_5defcc159b9540fab9401382c1e0f442.jpg?type=s" loading="auto" class="image" >
+                                                        </picture>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                    </div>
+                                                    <div class="product_desc">
+                                                        <p class="product_name">Essentials The Core Collection Hoodie Dark Oatmeal</p>
+                                                        <div class="price_box">
+                                                            <span class="amount" >180,000</span>
+                                                            <span class="unit" style="display:;" >원</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="product_item" >
+                                                <a href="/products/21935" class="product_link">
+                                                    <div class="product" style="background-color:#ebf0f5;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMjA4MDFfMTIx/MDAxNjU5MzQwODMzMDc3.PzhWN_CoGllmWG7XgAaifLpEXzt6mI_koqrP43iaEUEg.ESuJOcRJB9Ox4pObNyTz2hv-isp0iuzHNGy-LAZy7esg.PNG/a_ad597a3bae0f4eaaada28e57b1ab6592.png?type=s_webp">
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMjA4MDFfMTIx/MDAxNjU5MzQwODMzMDc3.PzhWN_CoGllmWG7XgAaifLpEXzt6mI_koqrP43iaEUEg.ESuJOcRJB9Ox4pObNyTz2hv-isp0iuzHNGy-LAZy7esg.PNG/a_ad597a3bae0f4eaaada28e57b1ab6592.png?type=s" >
+                                                            <img alt="Nike Air Force 1 '07 WB Flax" src="https://kream-phinf.pstatic.net/MjAyMjA4MDFfMTIx/MDAxNjU5MzQwODMzMDc3.PzhWN_CoGllmWG7XgAaifLpEXzt6mI_koqrP43iaEUEg.ESuJOcRJB9Ox4pObNyTz2hv-isp0iuzHNGy-LAZy7esg.PNG/a_ad597a3bae0f4eaaada28e57b1ab6592.png?type=s" loading="auto" class="image" >
+                                                        </picture>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                    </div>
+                                                    <div class="product_desc" >
+                                                        <p class="product_name" >Nike Air Force 1 '07 WB Flax</p>
+                                                        <div class="price_box" >
+                                                            <span class="amount" >150,000</span>
+                                                            <span class="unit" style="display:;" >원</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="product_item" >
+                                                <a href="/products/36877" class="product_link" >
+                                                    <div class="product" style="background-color:#f4f4f4;">
+                                                        <picture class="picture product_img">
+                                                            <source type="image/webp" srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjRfMjg3/MDAxNjI0NDk5NTU5ODY5.nXPUDj2Rb-O1uTqFYcMlWTie_FQ_fwDpvmMUVitFZ9Ag.LUZMlU9OQG-Y5iLdUfWSXTvHb_bnXi1U97vqOL3fVCYg.JPEG/p_0e07e4e224ac41c5a414edc8ae78fcb7.jpg?type=s_webp" >
+                                                            <source srcset="https://kream-phinf.pstatic.net/MjAyMTA2MjRfMjg3/MDAxNjI0NDk5NTU5ODY5.nXPUDj2Rb-O1uTqFYcMlWTie_FQ_fwDpvmMUVitFZ9Ag.LUZMlU9OQG-Y5iLdUfWSXTvHb_bnXi1U97vqOL3fVCYg.JPEG/p_0e07e4e224ac41c5a414edc8ae78fcb7.jpg?type=s" >
+                                                            <img alt="Stussy World Tour T-Shirt White" src="https://kream-phinf.pstatic.net/MjAyMTA2MjRfMjg3/MDAxNjI0NDk5NTU5ODY5.nXPUDj2Rb-O1uTqFYcMlWTie_FQ_fwDpvmMUVitFZ9Ag.LUZMlU9OQG-Y5iLdUfWSXTvHb_bnXi1U97vqOL3fVCYg.JPEG/p_0e07e4e224ac41c5a414edc8ae78fcb7.jpg?type=s" loading="auto" class="image" >
+                                                        </picture>
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                        <!---->
+                                                    </div>
+                                                    <div class="product_desc" >
+                                                        <p class="product_name" >Stussy World Tour T-Shirt White</p>
+                                                        <div class="price_box" ><span class="amount" >80,000</span>
+                                                            <span class="unit" style="display:;" >원</span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="social_contents">
+                                    <div class="social_btn">
+                                        <div class="btn_bind">
+                                            <a aria-label="좋아요" class="btn like" onclick="like_clicked()">
+                                                <img  id="like_icon" src="../../img/styleImg/like_icon.png" class="icon sprite-icons social-like">
+                                            </a>
+                                            <a style="cursor: pointer;" aria-label="댓글" class="btn comment" onclick="comment_more()">
+                                                <img src="../../img/styleImg/comment_icon.png" class="social-comment icon sprite-icons">
+                                            </a>
+                                        </div>
+                                        <a href="#" aria-label="공유" class="btn share" >
+                                            <img src="../../img/share.png" class="social-share icon sprite-icons" >
+                                        </a>
+                                    </div>
+                                    <div class="social_count">
+                                        <!---->
+                                        <a href="#" class="like_count"> 공감 <strong id="like_cnt">72</strong>개 </a>
+                                        <!---->
+                                        <!---->
+                                    </div>
+                                    <div class="social_text">
+                                        <span href="#" class="text_link" >
+                                            <span class="text" >뿡
+                                            <a class="hashtag" href="https://kream.co.kr/social/tags/미리메리챌린지">#미리메리챌린지</a>
+                                            </span>
+                                                <!---->
+                                        </span>
+                                        <!---->
+                                    </div>
+                                    <div class="social_comment">
+                                        <div class="comment_area" >
+                                            <a href="#" class="comment_count" > 댓글 <strong >4</strong>개 </a>
+                                            <div class="comment_list" >
+                                                <div class="comment_unit">
+                                                    <div class="comment_box" >
+                                                        <a href="#" class="profile_link" >
+                                                            <img src="../../img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img" >
+                                                        </a>
+                                                        <div class="comment_detail" >
+                                                            <div class="main">
+                                                                <span class="user_name" >svn3g8</span>
+                                                                <span class="comment_txt" >스택.사이즈  궁금합니닷!!</span>
+                                                            </div>
+                                                            <div class="sub" >
+                                                                <span class="upload_time" >2022년 12월 14일</span>
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+<!--                                                        <a href="#" class="btn_like" >-->
+<!--                                                            <img src="../../static/lib/styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                        </a>-->
+                                                    </div>
+                                                </div>
+                                                <div class="comment_unit">
+                                                    <div class="comment_box">
+                                                        <a href="#" class="profile_link" >
+                                                            <img src="https://kream-phinf.pstatic.net/MjAyMjEyMjRfMTE3/MDAxNjcxODY0Nzg3ODMx.ToIWBHJApkXCTqb8aH6WguMbp59jT7r4962CLOpz7Zcg.gI9kyhnkoBm8jhB8f-vc6ZiqjrBfLWtldF9oiS6Eu6Mg.JPEG/p_e02d924ee0d84dd98db8c41c2fba2119.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img" >
+                                                        </a>
+                                                        <div class="comment_detail" >
+                                                            <div class="main" >
+                                                                <span class="user_name" >nvvwvn</span>
+                                                                <span class="comment_txt" >바지는 어디 제품인가요  ?</span>
+                                                            </div>
+                                                            <div class="sub" >
+                                                                <span class="upload_time" >2022년 12월 14일</span>
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                                <!---->
+                                                            </div>
+                                                        </div>
+<!--                                                        <a href="#" class="btn_like" >-->
+<!--                                                            <img src="../../static/lib/styleImg/like_icon.png" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                        </a>-->
+                                                    </div>
+                                                </div>
+                                                <a style="cursor: pointer;" class="btn_more"  onclick="comment_more()">댓글 더 보기...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!---->
+<!--                                    댓글 더보기 시작-->
+                                    <div style="display: none;" id="comment_more" class="layer_social_comment layer lg">
+                                        <div class="layer_container">
+                                            <a class="btn_layer_close">
+                                                <img id="comment_close" src="../../img/x.png" class="ico-close icon sprite-icons" onclick="comment_close()">
+                                            </a>
+                                            <div  class="layer_header">
+                                                <h2 class="title">댓글</h2>
+                                            </div>
+                                            <div class="layer_content">
+                                                <div class="comment_top">
+                                                    <div class="comment_top_scroll">
+                                                        <div class="comment_unit" >
+                                                            <div class="comment_box">
+                                                                <a href="#" class="profile_link">
+                                                                    <img  src="https://kream-phinf.pstatic.net/MjAyMTEwMTdfMTcy/MDAxNjM0NDQyNjE2OTAw.zcttZMktG1r7UzTGLx1O0xNa3NpIpY5sv1OT3TsISeUg.htPxm_M5js-UOSoE-EmPj1xBbPMtUAue7vsuDkjkzXcg.JPEG/p_fa4534f074834c7283a6f0284d188e93.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img">
+                                                                </a>
+                                                                <div  class="comment_detail">
+                                                                    <div class="main">
+                                                                        <span class="user_name">mangocheezz</span>
+                                                                        <span class="comment_txt">북금곰<br>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/미리메리챌린지">#미리메리챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/크림챌린지">#크림챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/KREAM챌린지">#KREAM챌린지</a>
+                                                                            <a class="hashtag" href="https://kream.co.kr/social/tags/스트릿">#스트릿</a>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div  class="sub">
+                                                                        <span  class="upload_time">2022년 12월 17일</span>
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
+                                                                </div>
+<!--                                                                <a  href="#" class="btn_like">-->
+<!--                                                                    <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                        <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                    </svg>-->
+<!--                                                                </a>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="social_comment_input_box">
+                                                        <!---->
+                                                        <div class="social_comment_input">
+                                                            <div  class="comment_input">
+                                                                <a  href="#" class="profile_link">
+                                                                    <img  src="../../img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                                </a>
+                                                                <div class="wrap_input" style="height: 41px;">
+                                                                    <div contenteditable="true" class="input_txt origin"></div>
+                                                                    <div  placeholder="댓글을 남기세요…" class="input_txt dummy"></div>
+                                                                    <a  href="#" class="btn_regist" style="display: none;"> 등록 </a>
+                                                                </div>
+                                                            </div>
+                                                            <ul class="social_suggests" style="display: none;">
+
+                                                            </ul>
+                                                        </div>
+                                                    </div></div><div class="comment_content">
+                                                <div class="comment_group">
+                                                    <div class="comment_unit" >
+                                                        <div class="comment_box">
+                                                            <a  href="#" class="profile_link">
+                                                                <img  src="https://kream-phinf.pstatic.net/MjAyMTA2MDVfMjIx/MDAxNjIyODk4MDg5Mzc3.AswlLgdsszwjhvsfkO7UZ4AQuAsClgJE_vAY7W6pvcsg.NnMrpGmDhYGyHkw1dKqcOvOh7a_qj9uEK0SLacZmMzgg.JPEG/p_be0e84a1ed5842019ca7e23fedaaf5be.jpeg?type=sl" alt="KREAM 프로필 이미지" class="profile_img">
+                                                            </a>
+                                                            <div class="comment_detail">
+                                                                <div  class="main">
+                                                                    <span  class="user_name">1week7outfits</span>
+                                                                    <span  class="comment_txt">너무 멋져요 💘</span>
+                                                                </div>
+                                                                <div class="sub">
+                                                                    <span class="upload_time">2022년 12월 19일</span>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <a  href="#" class="writing_reply"> 답글쓰기 </a>
+                                                                    <a href="#" class="delete">삭제</a>
+                                                                </div>
+                                                            </div>
+<!--                                                            <a href="#" class="btn_like">-->
+<!--                                                                <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                    <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                </svg>-->
+<!--                                                            </a>-->
+                                                        </div>
+                                                        <div   class="reply_bind"></div>
+                                                    </div>
+                                                    <div class="comment_unit" >
+                                                        <div  class="comment_box">
+                                                            <a  href="#" class="profile_link">
+                                                                <img  src="../../img/kream_empty_img.png" alt="KREAM 프로필 이미지" class="profile_img">
+                                                            </a>
+                                                            <div  class="comment_detail">
+                                                                <div  class="main">
+                                                                    <span  class="user_name">ddemfv</span>
+                                                                    <span  class="comment_txt">땅딸보</span>
+                                                                </div>
+                                                                <div class="sub">
+                                                                    <span class="upload_time">2022년 12월 18일</span>
+                                                                    <!---->
+                                                                    <!---->
+                                                                    <a  href="#" class="writing_reply"> 답글쓰기 </a>
+                                                                    <a href="#" class="delete">삭제</a>
+
+                                                                </div>
+                                                            </div>
+<!--                                                            <a  href="#" class="btn_like">-->
+<!--                                                                <svg  xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons social-like-gray-sm">-->
+<!--                                                                    <use  href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm" xlink:href="/_nuxt/3182c3b1ca2f77da7bc3e1acf109306c.svg#i-social-like-gray-sm"></use>-->
+<!--                                                                </svg>-->
+<!--                                                            </a>-->
+                                                        </div>
+                                                        <div class="reply_bind">
+
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                                <!---->
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    댓글 더보기 끝-->
+                                    <!---->
+                                    <!---->
+                                </div>
+                            </div>
+<!--                            게시글 하나 끝-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <link rel="stylesheet" href="../../static/lib/css/hashtag.css">-->
+<!-- 푸터 시작 -->
+<footer th:fragment="checkFooter">
+    <div class="footer_flex_box">
+        <div id="footer_left_box">
+            <a href="#">
+                <div class="footer_box_text">
+                    <div class="fb_text_1">SERVICE GUIDE</div>
+                    <div class="fb_text_2">
+                        <P>KREAM은 처음이지?<br>서비스 소개를 확인해보세요.</p>
+                    </div>
+                    <div class="fb_text_3">서비스 안내</div>
+                </div>
+            </a>
+        </div>
+        <div id="footer_right_box"class="app_QR_click" onclick="pop()">
+            <a class="frb">
+                <div class="footer_box_text">
+                    <div class="fb_text_1">DOWNLOAD THE APP</div>
+                    <div class="fb_text_2">
+                        <P>KREAM 앱을 설치하여<br>한정판 스니커즈를 FLEX 하세요!</p>
+                    </div>
+                    <div class="fb_text_3">앱 설치하기</div>
+                </div>
+            </a>
+        </div>
+        <a href="#fixed"><div id="top_button_box"><button id = "top_button"></button></div></a>
+    </div>
+
+    <div class="footer_flex_box2">
+        <div id="footer_left_box2">
+            <div class="footer_box_text2" id="fbtext2_left">
+                <div class="fbb2_Btext">이용안내</div>
+                <ul>
+                    <li><a onclick="pop_inspecion()">검수기준</a></li>
+                    <li><a onclick="pop_policy()">이용정책</a></li>
+                    <li><a onclick="pop_penalty()">패널티 정책</a></li>
+                    <li><a onclick="pop_commu()">커뮤니티 가이드라인</a></li>
+                </ul>
+            </div>
+            <div class="footer_box_text2">
+                <div class="fbb2_Btext">고객지원</div>
+                <ul>
+                    <li><a href="/notice">공지사항</a></li>
+                    <li><a href="/about">서비스 소개</a></li>
+                    <li><a href="https://www.kream.co.kr/showroom">쇼룸 안내</a></li>
+                    <li><a href="https://www.kream.co.kr/about/seller_reception">판매자 방문접수</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer_right_box2">
+            <div class="fbb2_Btext">고객센터 1588-7813</div>
+            <ul>
+                <li>운영시간평일 11:00 - 18:00 (토 ∙ 일, 공휴일 휴무)</li>
+                <li>점심시간평일 13:00 - 14:00</li>
+            </ul>
+            <div id="footer_ask_text">1:1 문의하기는 앱에서만 가능합니다.</div>
+            <div id="footer_ask_box"><a href="/faq">자주 묻는 질문</a></div>
+        </div>
+    </div>
+    <div class="footer_flex_box3">
+        <div id="footer_box3">
+            <div id="footer_box3_1">
+                <ul id="footer_box3_1_text">
+                    <li><a href="https://www.kreamcorp.com/">회사소개</a></li>
+                    <li><a href="https://recruit.kreamcorp.com/kream/recruitMain">인재채용</a></li>
+                    <li class="no_moblie"><a href="https://www.kreamcorp.com/view/contact.html">제휴제안</a></li>
+                    <li><a href="https://www.kream.co.kr/agreement">이용약관</a></li>
+                    <li id="policy"><a href="https://www.kream.co.kr/privacy">개인정보처리방침</a></li>
+                </ul>
+                <ul id="sns_and_button">
+                    <ul id="sns_img">
+                        <li id="insta_img"><a href="https://www.instagram.com/kream.co.kr/"></a></li>
+                        <li id="facebook_img"><a href="https://www.facebook.com/kreamcokr"></a></li>
+                        <li id="chat_img"><a href="https://pf.kakao.com/_adpxlxb"></a></li>
+                    </ul>
+                    <li id="footer_button" onclick="business_info()">사업자정보 <div class="up_down_img"></div></li>
+                </ul>
+            </div>
+            <div id="footer_box3_2" class="business_info">
+                <ul>
+                    <li>크림 주식회사 · 대표 김창욱</li>
+                    <li>사업자등록번호: 570-88-01618 <a href="#">사업자정보확인</a></li>
+                    <li>통신판매업: 제 2021-성남분당C-0093호</li>
+                </ul>
+                <ul>
+                    <li>사업장소재지: 경기도 성남시 분당구 분당내곡로 117, 8층</li>
+                    <li>개인정보관리책임자: 김미진</li>
+                    <li>호스팅 서비스: 네이버 클라우드 (주)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer_flex_box4">
+        <p id="footer_left_box4">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다.</p>
+        <p id="footer_right_box4">© 2021 KREAM.Corp.</p>
+    </div>
+</footer>
+    <!-- 푸터 끝 -->
+
+<script src="../../js/style/comment_layer.js"></script>
+<script src="../../js/style/like.js"></script>
+</body>
+
+
+</html>
+
+
