@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- Header 시작 -->
-<header th:replace="/fragment/order_header.html :: order_header"></header>
+<header th:replace="fragment/order_header.html :: order_header"></header>
 <!-- Header 끝 -->
     <div class="container sell lg">
         <div class="content_area">
@@ -104,12 +104,12 @@
             </div>
         </div>
             <!--검수기준 레이어 창 layer_auth_policy-->
-            <div th:replace="/layer/layer_auth_policy.html :: layer_auth_policy"></div>
+            <div th:replace="layer/layer_auth_policy.html :: layer_auth_policy"></div>
             <!--검수기준 레이어창 끝 layer_auth_policy-->
 
     </div>
         <!--footer 시작-->
-        <footer th:replace="/fragment/footer.html :: footer"></footer>
+        <footer th:replace="fragment/footer.html :: footer"></footer>
         <!--footer 끝-->
 </div>
 </div>

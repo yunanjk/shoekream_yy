@@ -105,7 +105,7 @@ public class ShopController {
         map.addAttribute("wishCount", wishCount);
         map.addAttribute("tagCount", tagCount);
         map.addAttribute("brandName",products.stream().findAny().get().brand());
-        return "/product/brand";
+        return "product/brand";
     }
 
 }

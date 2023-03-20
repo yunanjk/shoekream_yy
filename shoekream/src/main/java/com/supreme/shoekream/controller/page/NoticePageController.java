@@ -19,18 +19,18 @@ public class NoticePageController {
     private final NoticeService noticeService;
     @GetMapping(path="faq")   //http://localhost:8889/faq
     public ModelAndView faq(){
-        return new ModelAndView("/notice/faq");
+        return new ModelAndView("notice/faq");
     }
 
     @GetMapping(path="auth_policy")   //http://localhost:8889/auth_policy
     public ModelAndView auth_policy(){
-        return new ModelAndView("/notice/auth_policy");
+        return new ModelAndView("notice/auth_policy");
     }
 
     @GetMapping(path="notice")   //http://localhost:8889/notice
     public String notice(ModelMap map,@PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable){
         map.addAttribute("notices",noticeService.list(pageable));
-        return"/notice/notice";
+        return"notice/notice";
     }
 
 //    @GetMapping(path="notice/{Idx}")
@@ -43,6 +43,6 @@ public class NoticePageController {
     @GetMapping(path="notice/{idx}")
     public String noticeDetail(ModelMap map,@PathVariable Long idx){
         map.addAttribute("notice",noticeService.read(idx));
-        return "/notice/notice_view";
+        return "notice/notice_view";
     }
 }

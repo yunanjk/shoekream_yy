@@ -13,8 +13,8 @@
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <!--header 넣을곳-->
-<header th:replace="/fragment/header.html :: header"></header>
-<head th:replace="/fragment/footer_head :: head"></head>
+<header th:replace="fragment/header.html :: header"></header>
+<head th:replace="fragment/footer_head :: head"></head>
 <!--header 넣을곳-->
 <body>
     <div id="__layout">
@@ -274,7 +274,7 @@
         </div>
     </div>
 <!--footer 넣을곳-->
-    <footer th:replace="/fragment/footer :: footer"></footer>
+    <footer th:replace="fragment/footer :: footer"></footer>
 <!--footer 넣을곳-->
 </body>
 <script>

@@ -79,7 +79,7 @@ public class MypageController {
         modelmap.addAttribute("bidCountSell",biddingsSell.stream().toList().size());
         modelmap.addAttribute("proCountSell",progressingsSell.stream().toList().size());
         modelmap.addAttribute("endCountSell",endsSell.stream().toList().size());
-        return "/my/mypage";
+        return "my/mypage";
     }
 
 //    @Autowired PaginationService paginationService;
@@ -106,7 +106,7 @@ public class MypageController {
             map.addAttribute("today", null);
             map.addAttribute("before", null);
         }
-        return ("/my/buying");
+        return ("my/buying");
     }
 
 //        Page<Wish> wish_productList_page= wishApiLogicService.productListPage(kreamPrincipal.idx(), pageable);
@@ -121,7 +121,7 @@ public class MypageController {
     public String buyingDetail(ModelMap map, @PathVariable(name="buyIdx") Long buyIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         BuyResponse buy = BuyResponse.from(buyService.buyDetail(buyIdx));
         map.addAttribute("buy",buy);
-        return("/my/buying_detail");
+        return("my/buying_detail");
     }
 
     @GetMapping(path = "selling")
@@ -144,14 +144,14 @@ public class MypageController {
             map.addAttribute("today", null);
             map.addAttribute("before", null);
         }
-        return ("/my/selling");
+        return ("my/selling");
     }
 
     @GetMapping(path = "selling/{sellIdx}")
     public String sellingDetail(ModelMap map, @PathVariable(name="sellIdx") Long sellIdx, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         SellResponse sell = SellResponse.from(sellService.sellDetail(sellIdx));
         map.addAttribute("sell", sell);
-        return("/my/selling_detail");
+        return("my/selling_detail");
     }
 
 
@@ -179,22 +179,22 @@ public class MypageController {
         }
         System.out.println(memberApiLogicService.readProfile(kreamPrincipal.idx()));
         map.addAttribute("profile", memberApiLogicService.readProfile(kreamPrincipal.idx()));
-        return "/my/profile";
+        return "my/profile";
     }
 
     @GetMapping(path="buying_detail")
     public ModelAndView buying_detail(){
-        return new ModelAndView("/my/buying_detail");
+        return new ModelAndView("my/buying_detail");
     }
 
     @GetMapping(path="buying_end")
     public ModelAndView buying_end(){
-        return new ModelAndView("/my/buying_end");
+        return new ModelAndView("my/buying_end");
     }
 
     @GetMapping(path="selling_detail")
     public ModelAndView selling_detail(){
-        return new ModelAndView("/my/selling_detail");
+        return new ModelAndView("my/selling_detail");
     }
 
     @GetMapping(path="address")
@@ -216,7 +216,7 @@ public class MypageController {
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
         map.addAttribute("basic", cardApiLogicService.list(memberDTO.idx(), true));
         map.addAttribute("other", cardApiLogicService.list(memberDTO.idx(), false));
-        return "/my/payment";
+        return "my/payment";
     }
 
     @GetMapping(path="account")
@@ -226,7 +226,7 @@ public class MypageController {
         }
         MemberDTO memberDTO = kreamPrincipal.toFullDto();
         modelmap.addAttribute("account", accountApiLogicService.list(memberDTO.idx()));
-        return "/my/account";
+        return "my/account";
     }
 
     @GetMapping(path="receipt")
@@ -234,7 +234,7 @@ public class MypageController {
         if(kreamPrincipal == null){
             return "login/login";
         }
-        return "/my/receipt";
+        return "my/receipt";
     }
 
     @GetMapping(path="point")
@@ -250,7 +250,7 @@ public class MypageController {
 
     @GetMapping(path="withdrawal")
     public ModelAndView withdrawal(){
-        return new ModelAndView("/my/withdrawal");
+        return new ModelAndView("my/withdrawal");
     }
 
 }

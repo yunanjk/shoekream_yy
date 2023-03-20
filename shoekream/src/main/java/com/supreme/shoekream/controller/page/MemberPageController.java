@@ -21,7 +21,7 @@ public class MemberPageController {
     @GetMapping(path="login")   // http://localhost:8889/login
     public String login(@AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         if(kreamPrincipal!= null) return "redirect:/";
-        return "/login/login";
+        return "login/login";
     }
 
 //    @PostMapping(path="/loginOk")   // http://localhost:8889/loginOk
@@ -52,7 +52,7 @@ public class MemberPageController {
 
     @GetMapping(path="join")   //http://localhost:8889/join
     public ModelAndView join(){
-        return new ModelAndView("/login/join");
+        return new ModelAndView("login/join");
     }
 
     @GetMapping(path="joinOk")   //http://localhost:8889/join
@@ -66,7 +66,7 @@ public class MemberPageController {
 
         if(session== null){
             System.out.println("세션이 없습니다");
-            return new ModelAndView("/join");
+            return new ModelAndView("join");
         }else{
             memberPw = (String) session.getAttribute("memberPw");
             name = (String) session.getAttribute("name");
@@ -74,7 +74,7 @@ public class MemberPageController {
             email = (String) session.getAttribute("email");
             shoeSize = (String) session.getAttribute("shoeSize");
             System.out.println("세션이 있습니다");
-            return new ModelAndView("/index")
+            return new ModelAndView("index")
                     .addObject("memberPw", memberPw)
                     .addObject("name", name)
                     .addObject("hp", hp)
@@ -85,11 +85,11 @@ public class MemberPageController {
 
     @GetMapping(path="/login/find_email")   //http://localhost:8889/find_email
     public ModelAndView find_email(){
-        return new ModelAndView("/login/find_email");
+        return new ModelAndView("login/find_email");
     }
 
     @GetMapping(path="/login/find_password")   //http://localhost:9999/find_password
     public ModelAndView find_password(){
-        return new ModelAndView("/login/find_password");
+        return new ModelAndView("login/find_password");
     }
 }

@@ -15,12 +15,12 @@
 
 <body>
 <!--header-->
-<header th:replace="/fragment/header::header"></header>
+<header th:replace="fragment/header::header"></header>
 <!--header-->
 <div class="container my lg" style="margin-top: 100px;">
     <div>
         <!-- navbar -->
-        <nav th:replace="/fragment/mypage_navbar::nav"></nav>
+        <nav th:replace="fragment/mypage_navbar::nav"></nav>
         <!--navbar-->
     </div>
     <div class="content_area">
@@ -104,7 +104,7 @@
         </div>
     </div>
 </div>
-<footer th:replace="/fragment/footer::footer"></footer>
+<footer th:replace="fragment/footer::footer"></footer>
 <div><div style="display: none;" class="layer lg layer_alert"><div class="layer_container"><a href="#" class="btn_layer_close"></a><div class="layer_header"></div><div class="layer_content"><div class="alert_box high"><p class="alert_desc">이미 진행 중인 거래를 포함하여 앞으로
     모든 거래의 대금 정산이 해당 계좌로 변경됩니다.</p></div><div class="layer_btn"><button type="button" class="btn outlinegrey medium"> 취소 </button><button type="button" class="btn solid
                  medium"> 확인 </button></div></div></div></div><div  id="toast" class="toast lg"><div  class="wrap"><div  class="toast-content"></div></div></div></div>

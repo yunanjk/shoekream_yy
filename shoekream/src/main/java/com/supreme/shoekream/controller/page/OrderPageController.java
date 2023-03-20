@@ -38,7 +38,7 @@ public class OrderPageController {
     //보류- 이유: 상세페이지에서 자동으로 사이즈가 선택이 되어있는 상태로 product_idx가 넘어온다
     @GetMapping(path="buyselect/{idx}")   //http://localhost:8889/buyselect
     public ModelAndView buyselect(HttpServletRequest request){
-        return new ModelAndView("/order/buySelect");
+        return new ModelAndView("order/buySelect");
     }
 
     @GetMapping(path="buy/check/{productIdx}")   //http://localhost:8889/buycheck/1
@@ -46,7 +46,7 @@ public class OrderPageController {
     ){
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
         map.addAttribute("product",product);
-        return "/order/buycheck";
+        return "order/buycheck";
     }
 
     @GetMapping(path="buy/{productIdx}")   //http://localhost:8889/buy
@@ -85,28 +85,28 @@ public class OrderPageController {
         }
 
 
-        return "/order/buy";
+        return "order/buy";
 
     }   //viewName: 페이지이름이랑 같아야함
 
     @GetMapping(path = "buybidfinish")  //http://localhost:8889/buybidfinish
-    public ModelAndView buybidfinish(){return new ModelAndView("/order/buybidFinish");}
+    public ModelAndView buybidfinish(){return new ModelAndView("order/buybidFinish");}
 
     @GetMapping(path = "buynowfinish")  //http://localhost:8889/buynowfinish
-    public ModelAndView buynowfinish(){return new ModelAndView("/order/buynowFinish");}
+    public ModelAndView buynowfinish(){return new ModelAndView("order/buynowFinish");}
 
 
 
     @GetMapping(path="sellselect")   //http://localhost:8889/sellselect
     public ModelAndView sellselect(){
-        return new ModelAndView("/order/sellselect");
+        return new ModelAndView("order/sellselect");
     }
 
     @GetMapping(path="sell/check/{productIdx}")   //http://localhost:8889/sellcheck
     public String sellcheck(@PathVariable(name="productIdx") Long productIdx, ModelMap map){
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
         map.addAttribute("product",product);
-        return "/order/sellcheck";
+        return "order/sellcheck";
     }
 
     @GetMapping(path="sell/{productIdx}")   //http://localhost:8889/sell
@@ -143,18 +143,18 @@ public class OrderPageController {
         }else{
             map.addAttribute("basicCard", basicCard.get(0));
         }
-        return "/order/sell";
+        return "order/sell";
     }
 
     @GetMapping(path = "sellbidfinish")  //http://localhost:8889/sellbidfinish
-    public ModelAndView sellbidfinish(){return new ModelAndView("/order/sellbidfinish");}
+    public ModelAndView sellbidfinish(){return new ModelAndView("order/sellbidfinish");}
 
     @GetMapping(path = "sellnowfinish")  //http://localhost:8889/sellnowfinish
-    public ModelAndView sellnowfinish(){return new ModelAndView("/order/sellnowfinish");}
+    public ModelAndView sellnowfinish(){return new ModelAndView("order/sellnowfinish");}
 
     @GetMapping(path = "penalty")
-    public ModelAndView penalty(){ return new ModelAndView("/layer/layer_penalty"); }
+    public ModelAndView penalty(){ return new ModelAndView("layer/layer_penalty"); }
 
     @GetMapping(path = "guide")
-    public ModelAndView guide(){ return new ModelAndView("/layer/layer_guide"); }
+    public ModelAndView guide(){ return new ModelAndView("layer/layer_guide"); }
 }
