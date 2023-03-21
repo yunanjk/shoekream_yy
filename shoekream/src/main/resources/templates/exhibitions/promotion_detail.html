@@ -182,7 +182,7 @@
     const btnLucky = document.querySelector('#btn_luckydraw');
 
     const event = document.querySelector('.hidden_value').value;
-    fetch('http://localhost:8889/api/admin/event/' + event)
+    fetch('http://3.34.214.103:8889/api/admin/event/' + event)
         .then((response) => response.json())
         .then((data) => {
             let startTime = data.startTime;
@@ -249,7 +249,7 @@
         //request로 필요한 DOM 객체 선택
         const event = document.querySelector('.hidden_value');
 
-        fetch('http://localhost:8889/api/admin/event/draw', {
+        fetch('http://3.34.214.103:8889/api/admin/event/draw', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -311,7 +311,7 @@
     //             + minutes + "<span class='time_span'>분</span> " + seconds + "<span class='time_span'>초</span>";
     //     }
     // }
-    // fetch('http://localhost:8889/api/admin/event/' + 1)
+    // fetch('http://3.34.214.103:8889/api/admin/event/' + 1)
     //     .then((response) => response.json())
     //     .then((data) => {
     //         var startTime = data.startTime;
@@ -359,7 +359,7 @@
     //     //request로 필요한 DOM 객체 선택
     //     const event = document.querySelector('.hidden_value');
     //
-    //     fetch('http://localhost:8889/api/admin/event/draw', {
+    //     fetch('http://3.34.214.103:8889/api/admin/event/draw', {
     //         method: 'POST',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify({

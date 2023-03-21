@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("") //http://localhost:8889/
+@RequestMapping("") //http://3.34.214.103:8889/
 @RequiredArgsConstructor
 public class EventPageController {
     final EventApiService eventApiService;
@@ -29,13 +29,13 @@ public class EventPageController {
     private final EventRepository eventRepository;
     private final MemberApiLogicService memberApiLogicService;
 
-    @GetMapping(path="/promotion") //http://localhost:8889/
+    @GetMapping(path="/promotion") //http://3.34.214.103:8889/
     public String event(HttpServletRequest request, ModelMap map){
         EventDTO event = eventApiService.eventDetail(eventRepository.findFirstByOrderByIdxDesc().get().getIdx());
         map.addAttribute("event",event);
         return ("exhibitions/promotion");
     }
-    @GetMapping(path="/promotion_detail") //http://localhost:8889/
+    @GetMapping(path="/promotion_detail") //http://3.34.214.103:8889/
     public String eventDetail(HttpServletRequest request, ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         EventDTO event = eventApiService.eventDetail(eventRepository.findFirstByOrderByIdxDesc().get().getIdx());
         map.addAttribute("isDraw",eventApiService.isDraw(kreamPrincipal.idx()));
@@ -43,7 +43,7 @@ public class EventPageController {
         map.addAttribute("isPoint", memberApiLogicService.point(kreamPrincipal.idx()));
         return ("exhibitions/promotion_detail");
     }
-    @GetMapping(path="/man") //http://localhost:8889/
+    @GetMapping(path="/man") //http://3.34.214.103:8889/
     public String man(HttpServletRequest request, ModelMap map){
         List<ProductDTO> man = eventApiService.genderList("M");
         List<String> manbuynowPrices = sellService.buyNowPrices(man.stream().map(ProductDTO::toEntity).toList());
@@ -55,7 +55,7 @@ public class EventPageController {
         map.addAttribute("tagCount", tagCount);
         return ("exhibitions/man");
     }
-    @GetMapping(path="/woman") //http://localhost:8889/
+    @GetMapping(path="/woman") //http://3.34.214.103:8889/
     public String woman(HttpServletRequest request, ModelMap map){
         List<ProductDTO> woman = eventApiService.genderList("W");
         List<String> womanbuynowPrices = sellService.buyNowPrices(woman.stream().map(ProductDTO::toEntity).toList());

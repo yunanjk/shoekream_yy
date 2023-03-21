@@ -1,7 +1,7 @@
 //// view
 function pop_member_view(idx){
 
-    fetch('http://localhost:8899/api/admin/users/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data)
@@ -26,7 +26,7 @@ function close_member_view(){
     document.querySelector(".layer_user_view").style.display = "none";
 }
 function href_penalty(idx) {
-    fetch('http://localhost:8899/api/admin/users/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let email = data.data.email
@@ -34,7 +34,7 @@ function href_penalty(idx) {
         })
 }
 function href_buyList(idx) {
-    fetch('http://localhost:8899/api/admin/users/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let email = data.data.email
@@ -43,7 +43,7 @@ function href_buyList(idx) {
 
 }
 function href_sellList(idx) {
-    fetch('http://localhost:8899/api/admin/users/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let email = data.data.email
@@ -52,7 +52,7 @@ function href_sellList(idx) {
 
 }
 function href_styleList(idx) {
-    fetch('http://localhost:8899/api/admin/users/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/users/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let email = data.data.email

@@ -14,7 +14,7 @@ function sendit() {
 
 
 
-    fetch('http://localhost:8889/api/admin/event', {
+    fetch('http://3.34.214.103:8889/api/admin/event', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -47,7 +47,7 @@ function sendit() {
 
 function pop_event_edit(idx){
     document.querySelector(".layer_event_edit").style.display = "block";
-    fetch('http://localhost:8889/api/admin/event/'+idx)
+    fetch('http://3.34.214.103:8889/api/admin/event/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log("edit🟡" + data);
@@ -71,7 +71,7 @@ function sendedit(idx) {
     const startTime1 = document.querySelector('#e_startTime_input');
     const endTime1 = document.querySelector('#e_endTime_input');
 
-    fetch('http://localhost:8889/api/admin/event/'+idx, {
+    fetch('http://3.34.214.103:8889/api/admin/event/'+idx, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -105,7 +105,7 @@ function sendedit(idx) {
 //view
 function pop_event_view(idx) {
     document.querySelector(".layer_event_view").style.display = "block";
-    fetch('http://localhost:8889/api/admin/event/' + idx)
+    fetch('http://3.34.214.103:8889/api/admin/event/' + idx)
         .then((response) => response.json())
         .then((data) => {
             document.querySelector("#v_event_input").innerHTML = data.title;

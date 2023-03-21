@@ -24,14 +24,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("")    //http://localhost:8889
+@RequestMapping("")    //http://3.34.214.103:8889
 @RequiredArgsConstructor
 public class MainPageController {
     final MainService mainService;
     final StyleLogicService styleLogicService;
     final MemberRepository memberRepository;
     final SellService sellService;
-    @GetMapping(path="")   //http://localhost:8889/
+    @GetMapping(path="")   //http://3.34.214.103:8889/
     public String index(HttpServletRequest request, ModelMap map){
         List<ProductDTO> justDrop = mainService.collectionList("JUST_DROP");
 //        List<ProductDTO> mostPopular = mainService.collectionList("MOST_POPULAR");

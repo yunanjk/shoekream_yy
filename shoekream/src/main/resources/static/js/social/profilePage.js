@@ -8,7 +8,7 @@ window.onload = function(){
 
     const memberIdx = document.getElementById("memberIdx").value;
     console.log(memberIdx)
-    fetch("http://localhost:8889/api/social/profile/"+memberIdx )
+    fetch("http://3.34.214.103:8889/api/social/profile/"+memberIdx )
         .then((response) => response.json())
         .then((profile) => {
             console.log(profile);
@@ -29,7 +29,7 @@ window.onload = function(){
 
             const memberIdx = profile.idx;
 
-            fetch("http://localhost:8889/api/social/isBoardExist/"+ memberIdx)
+            fetch("http://3.34.214.103:8889/api/social/isBoardExist/"+ memberIdx)
                 .then((res) => res.json())
                 .then((dat) => {
                     // console.log(res)
@@ -116,12 +116,12 @@ function follow(){
     console.log(f_uf)
 
     if(f_uf == '팔로우'){
-        fetch('http://localhost:8889/api/social/follow/' + memberIdx)
+        fetch('http://3.34.214.103:8889/api/social/follow/' + memberIdx)
             .then(()=>{
                 location.reload();
             })
     }else if(f_uf == '언팔로우'){
-        fetch('http://localhost:8889/api/social/unfollow/'+memberIdx)
+        fetch('http://3.34.214.103:8889/api/social/unfollow/'+memberIdx)
             .then(()=>{
                 location.reload();
             })

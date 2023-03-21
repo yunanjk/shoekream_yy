@@ -25,7 +25,7 @@ public class ShopApiController extends CrudController<NoticeApiRequest, NoticeAp
     private final ProductApiLogicService productApiLogicService;
 
 
-    @GetMapping(path="/searchWord")    // http://localhost:8889/searchWord?keyword=
+    @GetMapping(path="/searchWord")    // http://3.34.214.103:8889/searchWord?keyword=
     public Header<List<ProductApiResponse>> searchWord(
             @RequestParam(required = true) String keyword,
             @RequestParam(required = false ,defaultValue = "1" ) int page,

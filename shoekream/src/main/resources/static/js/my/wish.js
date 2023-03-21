@@ -1,7 +1,7 @@
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // delete
 function Delete(idx){
-    fetch('http://localhost:8889/api/product/'+idx, {
+    fetch('http://3.34.214.103:8889/api/product/'+idx, {
         method: "DELETE"
     })
         .then((res) => {

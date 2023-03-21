@@ -15,7 +15,7 @@ window.onload = function(){
     item.classList.add('gnb_on');
 
     const productIdx = document.querySelector('.productIdx').value;
-    fetch("http://localhost:8889/api/social/products/full/"+productIdx)
+    fetch("http://3.34.214.103:8889/api/social/products/full/"+productIdx)
         .then((boards) => boards.json())
         .then((d)=>{
             console.log(d)

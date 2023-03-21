@@ -33,52 +33,52 @@
 //import java.util.List;
 //
 //@Controller
-//@RequestMapping("admin")    //http://localhost:8889/admin
+//@RequestMapping("admin")    //http://3.34.214.103:8889/admin
 //@RequiredArgsConstructor
 //public class AdminPageController {
 //    private final PaginationService paginationService;
 //    private final PointApiLogicService pointApiLogicService;
 //    private final MemberApiLogicService memberApiLogicService;
 //
-//    @GetMapping(path="")   //http://localhost:8889/admin
+//    @GetMapping(path="")   //http://3.34.214.103:8889/admin
 //    public ModelAndView index(){
 //        return new ModelAndView("/adminpage/index");
 //    }   //viewName: 페이지이름이랑 같아야함
 //
-//    @GetMapping(path="users")   //http://localhost:8889/admin/users
+//    @GetMapping(path="users")   //http://3.34.214.103:8889/admin/users
 //    public ModelAndView users(){
 //        return new ModelAndView("/adminpage/users.html");
 //    }
 //
-//    @GetMapping(path="users/create")   //http://localhost:8889/admin/users/create
+//    @GetMapping(path="users/create")   //http://3.34.214.103:8889/admin/users/create
 //    public ModelAndView usercreate(){
 //        return new ModelAndView("/adminpage/admin_layer/layer_user_create.html");
 //    }
 //
-//    @GetMapping(path="products")   //http://localhost:8889/admin/products
+//    @GetMapping(path="products")   //http://3.34.214.103:8889/admin/products
 //    public ModelAndView products(){
 //        return new ModelAndView("adminpage/products.html");
 //    }
 //
 //
-//    @GetMapping(path="login")   //http://localhost:8889/admin/login
+//    @GetMapping(path="login")   //http://3.34.214.103:8889/admin/login
 //    public ModelAndView loginadmin(){
 //        return new ModelAndView("/adminpage/login.html");
 //    }
 //
-//    @GetMapping(path="register")   //http://localhost:8889/admin/register
+//    @GetMapping(path="register")   //http://3.34.214.103:8889/admin/register
 //    public ModelAndView register(){
 //        return new ModelAndView("/adminpage/register.html");
 //    }
 //
-//    @GetMapping(path="brands")   //http://localhost:8889/admin/brands
+//    @GetMapping(path="brands")   //http://3.34.214.103:8889/admin/brands
 //    public ModelAndView brands(){
 //        return new ModelAndView("/adminpage/brands.html");
 //    }
 //
 //
 //    private final BuyService buyService;
-//    @GetMapping(path="buy")   //http://localhost:8889/admin/buy
+//    @GetMapping(path="buy")   //http://3.34.214.103:8889/admin/buy
 //    public String buy(@RequestParam(required = false) String searchKeyword,
 //                      @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
 //                      ModelMap map){
@@ -90,7 +90,7 @@
 //    }
 //
 //    private final SellService sellService;
-//    @GetMapping(path="sell")   //http://localhost:8889/admin/sell
+//    @GetMapping(path="sell")   //http://3.34.214.103:8889/admin/sell
 //    public String sell(
 //            @RequestParam(required = false) String searchKeyword,
 //            @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable, ModelMap map
@@ -106,7 +106,7 @@
 ////    public ModelAndView sell(){return new ModelAndView("/adminpage/sell.html");}
 //
 //    private final ConclusionRepository conclusionRepository;
-//    @GetMapping(path="conclusion")   //http://localhost:8889/admin/conclusion
+//    @GetMapping(path="conclusion")   //http://3.34.214.103:8889/admin/conclusion
 //    public ModelAndView conclusion(ModelMap modelMap){
 //        List<Conclusion> list = conclusionRepository.findAll();
 //        modelMap.addAttribute("list", list);
@@ -114,13 +114,13 @@
 //        return new ModelAndView("/adminpage/conclusion.html");
 //    }
 //
-//    @GetMapping(path="notice")   //http://localhost:8889/admin/notice
+//    @GetMapping(path="notice")   //http://3.34.214.103:8889/admin/notice
 //    public ModelAndView notice(){
 //        return new ModelAndView("/adminpage/notice.html");
 //    }
 //
 //    private final EventApiService eventApiService;
-//    @GetMapping(path="event")   //http://localhost:8889/admin/event
+//    @GetMapping(path="event")   //http://3.34.214.103:8889/admin/event
 //    public ModelAndView event(ModelMap map){
 //        map.addAttribute("event", eventApiService.list());
 //        System.out.println(eventApiService.list());
@@ -128,25 +128,25 @@
 //
 //    }
 //
-//    @GetMapping(path="brandcreate")   //http://localhost:8889/admin/brandcreate
+//    @GetMapping(path="brandcreate")   //http://3.34.214.103:8889/admin/brandcreate
 //    public ModelAndView brandcreate(){
 //        return new ModelAndView("/adminpage/brandcreate.html");
 //    }
 //
-//    @GetMapping(path="statusedit")   //http://localhost:8889/admin/statusedit
+//    @GetMapping(path="statusedit")   //http://3.34.214.103:8889/admin/statusedit
 //    public ModelAndView statusedit(){
 //        return new ModelAndView("/adminpage/statusedit.html");
 //    }
 //
 //    private final StyleLogicService styleLogicService;
-//    @GetMapping(path="style")   //http://localhost:8889/admin/style
+//    @GetMapping(path="style")   //http://3.34.214.103:8889/admin/style
 //    public String style(ModelMap map){
 //        map.addAttribute("feed", styleLogicService.list());
 //        System.out.println(styleLogicService.list());
 //        return "adminpage/style";
 //    }
 //
-//    @GetMapping(path="admin")   //http://localhost:8889/admin/admin
+//    @GetMapping(path="admin")   //http://3.34.214.103:8889/admin/admin
 //    public ModelAndView admin(){
 //        return new ModelAndView("/adminpage/admin.html");
 //    }

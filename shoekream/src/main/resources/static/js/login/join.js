@@ -192,7 +192,7 @@ function sendit() {
     })
         .then((res) => {
             alert('등록성공!')
-            location.href = 'http://localhost:8889/login';
+            location.href = 'http://3.34.214.103:8889/login';
             return; //리턴을 걸어서 진행하는 것을 막는다!
         })
         .then((data) => {

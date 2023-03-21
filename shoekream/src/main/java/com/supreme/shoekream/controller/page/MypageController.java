@@ -38,7 +38,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
-@RequestMapping("my") // http://localhost:8889/my
+@RequestMapping("my") // http://3.34.214.103:8889/my
 @RequiredArgsConstructor
 public class MypageController {
 

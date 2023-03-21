@@ -43,7 +43,7 @@ import java.io.File;
 import java.util.List;
 
 @Controller
-@RequestMapping("")    //http://localhost:8899/admin
+@RequestMapping("")    //http://3.34.214.103:8899/admin
 @RequiredArgsConstructor
 public class AdminPageController {
     private final PaginationService paginationService;
@@ -56,7 +56,7 @@ public class AdminPageController {
     private final PointApiLogicService pointApiLogicService;
 
 
-    @PostMapping(path="/loginOkYeah")   //http://localhost:8899/loginOk
+    @PostMapping(path="/loginOkYeah")   //http://3.34.214.103:8899/loginOk
     public String loginOk(HttpServletRequest request, String userid, String userpw){
         if(adminApiLogicService.read(userid, userpw).getData() != null){
             HttpSession session = request.getSession();
@@ -83,7 +83,7 @@ public class AdminPageController {
         }
     }
 
-    @GetMapping(path="")   //http://localhost:8899/
+    @GetMapping(path="")   //http://3.34.214.103:8899/
     public String index(HttpServletRequest request, ModelMap map){
         String session = sessionCheck(request);
         if(session == null) return "redirect:/login";
@@ -105,10 +105,10 @@ public class AdminPageController {
         map.addAttribute("sale", sales);
         map.addAttribute("topPosting",styleLogicService.unlog_trend().get(0));
 
-        return "/adminpage/index";
+        return "adminpage/index";
     }   //viewName: 페이지이름이랑 같아야함
 
-    @GetMapping(path="users")   //http://localhost:8899//users
+    @GetMapping(path="users")   //http://3.34.214.103:8899//users
     public String users(@RequestParam(required = false) String searchKeyword,
                         @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                         ModelMap map,HttpServletRequest request){
@@ -120,11 +120,11 @@ public class AdminPageController {
         map.addAttribute("barNumbers",barNumbers);
         map.addAttribute("sessionInfo",session);
 
-        return "/adminpage/users";
+        return "adminpage/users";
     }
 
     private final AdminProductApiLogicService adminProductApiLogicService;
-    @GetMapping(path="products")   // http://localhost:8899/products
+    @GetMapping(path="products")   // http://3.34.214.103:8899/products
     public String products(@RequestParam(required = false) String searchKeyword,
                                  @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                                  ModelMap map,HttpServletRequest request){
@@ -137,12 +137,12 @@ public class AdminPageController {
         map.addAttribute("sessionInfo",session);
 
         System.out.println(products);
-        return "/adminpage/products";
+        return "adminpage/products";
     }
 
 
     private final BuyService buyService;
-    @GetMapping(path="buy")   //http://localhost:8899/buy
+    @GetMapping(path="buy")   //http://3.34.214.103:8899/buy
     public String buy(@RequestParam(required = false) String searchKeyword,
                       @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap map,HttpServletRequest request){
@@ -153,11 +153,11 @@ public class AdminPageController {
         map.addAttribute("sessionInfo",session);
         map.addAttribute("buys",buys);
         map.addAttribute("barNumbers",barNumbers);
-        return("/adminpage/buy");
+        return("adminpage/buy");
     }
 
     private final SellService sellService;
-    @GetMapping(path="sell")   //http://localhost:8899/sell
+    @GetMapping(path="sell")   //http://3.34.214.103:8899/sell
     public String sell(
             @RequestParam(required = false) String searchKeyword,
             @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
@@ -174,7 +174,7 @@ public class AdminPageController {
     }
 
 
-    @GetMapping(path="conclusion") //http://localhost:8899/conclusion
+    @GetMapping(path="conclusion") //http://3.34.214.103:8899/conclusion
     public String conclusion(@RequestParam(required = false) String searchKeyword,
                       @PageableDefault(size = 10, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable,
                       ModelMap modelMap,HttpServletRequest request){
@@ -185,12 +185,12 @@ public class AdminPageController {
         modelMap.addAttribute("sessionInfo",session);
         modelMap.addAttribute("conclusion",conclusion);
         modelMap.addAttribute("barNumbers",barNumbers);
-        return("/adminpage/conclusion");
+        return("adminpage/conclusion");
     }
 
-    @GetMapping(path="notice")   //http://localhost:8899/notice
+    @GetMapping(path="notice")   //http://3.34.214.103:8899/notice
     public ModelAndView notice(HttpServletRequest request){
-        return new ModelAndView("/adminpage/notice.html");
+        return new ModelAndView("adminpage/notice");
     }
 
 
@@ -202,7 +202,7 @@ public class AdminPageController {
         map.addAttribute("event", eventApiService.list());
         System.out.println(eventApiService.list());
         map.addAttribute("sessionInfo",session);
-        return ("/adminpage/event");
+        return ("adminpage/event");
     }
 
     private final EventMemberService eventMemberService;
@@ -213,7 +213,7 @@ public class AdminPageController {
         map.addAttribute("eventMember", eventMemberService.list());
         System.out.println(eventMemberService.list());
         map.addAttribute("sessionInfo",session);
-        return ("/adminpage/eventMember");
+        return ("adminpage/eventMember");
     }
 
     private final StyleLogicService styleLogicService;
@@ -242,7 +242,7 @@ public class AdminPageController {
         map.addAttribute("admins",admins);
         List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(),admins.getTotalPages());
         map.addAttribute("barNumbers",barNumbers);
-        return"/adminpage/admin";
+        return"adminpage/admin";
     }
 
     @GetMapping("/logout")
@@ -268,7 +268,7 @@ public class AdminPageController {
         map.addAttribute("penaltys",penaltys);
         map.addAttribute("sessionInfo",session);
         map.addAttribute("barNumbers",barNumbers);
-        return "/adminpage/penalty";
+        return "adminpage/penalty";
     }
 
     @GetMapping(path="/point")
@@ -282,5 +282,4 @@ public class AdminPageController {
         map.addAttribute("barNumbers",barNumbers);
         return("adminpage/usersPoint");
     }
-
 }

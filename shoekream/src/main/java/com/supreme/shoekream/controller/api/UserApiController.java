@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("") //http://localhost:8889/
+@RequestMapping("") //http://3.34.214.103:8889/
 @RequiredArgsConstructor
 public class UserApiController {
     private final MemberApiLogicService memberApiLogicService;

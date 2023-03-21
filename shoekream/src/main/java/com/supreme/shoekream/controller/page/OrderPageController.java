@@ -36,12 +36,12 @@ public class OrderPageController {
     private final SellService sellService;
 
     //보류- 이유: 상세페이지에서 자동으로 사이즈가 선택이 되어있는 상태로 product_idx가 넘어온다
-    @GetMapping(path="buyselect/{idx}")   //http://localhost:8889/buyselect
+    @GetMapping(path="buyselect/{idx}")   //http://3.34.214.103:8889/buyselect
     public ModelAndView buyselect(HttpServletRequest request){
         return new ModelAndView("order/buySelect");
     }
 
-    @GetMapping(path="buy/check/{productIdx}")   //http://localhost:8889/buycheck/1
+    @GetMapping(path="buy/check/{productIdx}")   //http://3.34.214.103:8889/buycheck/1
     public String buycheck(@PathVariable(name="productIdx") Long productIdx, ModelMap map
     ){
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
@@ -49,7 +49,7 @@ public class OrderPageController {
         return "order/buycheck";
     }
 
-    @GetMapping(path="buy/{productIdx}")   //http://localhost:8889/buy
+    @GetMapping(path="buy/{productIdx}")   //http://3.34.214.103:8889/buy
     public String buy(@AuthenticationPrincipal KreamPrincipal kreamPrincipal,
                             @PathVariable(name="productIdx") Long productIdx,
                             ModelMap map){
@@ -89,27 +89,27 @@ public class OrderPageController {
 
     }   //viewName: 페이지이름이랑 같아야함
 
-    @GetMapping(path = "buybidfinish")  //http://localhost:8889/buybidfinish
+    @GetMapping(path = "buybidfinish")  //http://3.34.214.103:8889/buybidfinish
     public ModelAndView buybidfinish(){return new ModelAndView("order/buybidFinish");}
 
-    @GetMapping(path = "buynowfinish")  //http://localhost:8889/buynowfinish
+    @GetMapping(path = "buynowfinish")  //http://3.34.214.103:8889/buynowfinish
     public ModelAndView buynowfinish(){return new ModelAndView("order/buynowFinish");}
 
 
 
-    @GetMapping(path="sellselect")   //http://localhost:8889/sellselect
+    @GetMapping(path="sellselect")   //http://3.34.214.103:8889/sellselect
     public ModelAndView sellselect(){
         return new ModelAndView("order/sellselect");
     }
 
-    @GetMapping(path="sell/check/{productIdx}")   //http://localhost:8889/sellcheck
+    @GetMapping(path="sell/check/{productIdx}")   //http://3.34.214.103:8889/sellcheck
     public String sellcheck(@PathVariable(name="productIdx") Long productIdx, ModelMap map){
         Header<ProductApiResponse> product = productApiLogicService.read(productIdx);
         map.addAttribute("product",product);
         return "order/sellcheck";
     }
 
-    @GetMapping(path="sell/{productIdx}")   //http://localhost:8889/sell
+    @GetMapping(path="sell/{productIdx}")   //http://3.34.214.103:8889/sell
     public String sell(@AuthenticationPrincipal KreamPrincipal kreamPrincipal,
                              @PathVariable(name="productIdx") Long productIdx,
                              ModelMap map){
@@ -146,10 +146,10 @@ public class OrderPageController {
         return "order/sell";
     }
 
-    @GetMapping(path = "sellbidfinish")  //http://localhost:8889/sellbidfinish
+    @GetMapping(path = "sellbidfinish")  //http://3.34.214.103:8889/sellbidfinish
     public ModelAndView sellbidfinish(){return new ModelAndView("order/sellbidfinish");}
 
-    @GetMapping(path = "sellnowfinish")  //http://localhost:8889/sellnowfinish
+    @GetMapping(path = "sellnowfinish")  //http://3.34.214.103:8889/sellnowfinish
     public ModelAndView sellnowfinish(){return new ModelAndView("order/sellnowfinish");}
 
     @GetMapping(path = "penalty")

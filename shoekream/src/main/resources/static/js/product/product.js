@@ -276,7 +276,7 @@ wishes.forEach((wish) => {
         const ch = wish.childNodes;
         // console.log(ch);
         if(isWish === ""){
-            location.href = "http://localhost:8889/login";
+            location.href = "http://3.34.214.103:8889/login";
         }else {
             if (ch[1].getAttribute("src") == "/img/select_mark_off.PNG") {
                 wish_onoff.setAttribute("src", "/img/select_mark_on.png");
@@ -303,7 +303,7 @@ wishes.forEach((wish) => {
 function wishCreate() {
     const proIdx = document.getElementById("wish_proIdx").getAttribute("value");
     // console.log(proIdx);
-    fetch("http://localhost:8889/api/product", {
+    fetch("http://3.34.214.103:8889/api/product", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -327,7 +327,7 @@ function wishCreate() {
 // 관심상품 delete
 function wishDelete() {
     let idx = document.getElementById("wish_proIdx").getAttribute("value");
-    fetch('http://localhost:8889/api/product/' + idx, {
+    fetch('http://3.34.214.103:8889/api/product/' + idx, {
         method: "DELETE"
     })
     .then((res) => {

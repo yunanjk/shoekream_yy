@@ -253,7 +253,7 @@ function drawOk(){
     if(drawCheck.checked == true){
         // 탈퇴 api 호출
         if (confirm("정말 탈퇴하시겠습니까?") == true){    //확인
-            fetch('http://localhost:8889/api/member/delete', {
+            fetch('http://3.34.214.103:8889/api/member/delete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

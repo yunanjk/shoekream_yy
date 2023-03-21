@@ -2,7 +2,7 @@ function comment_more(idx, sessionUserIdx){
     if(document.getElementById('username') == null){
         location.href='/login';
     }else{
-        fetch("http://localhost:8889/api/social/comments_more/" + idx)
+        fetch("http://3.34.214.103:8889/api/social/comments_more/" + idx)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data)
@@ -19,7 +19,7 @@ function comment_more(idx, sessionUserIdx){
                 dt = new Date(data.createdAt);
                 document.getElementById('layer_board_time').innerText =
                     dt.getFullYear() + '년 ' + (dt.getMonth()+1) + '월 ' + dt.getDate() + '일'
-                fetch("http://localhost:8889/api/social/comments_more/getSessionUser")
+                fetch("http://3.34.214.103:8889/api/social/comments_more/getSessionUser")
                     .then((response2) => response2.json())
                     .then((user)=>{
                         document.getElementById('layer_commment_create_profile').src = user.imgUrl;
@@ -83,7 +83,7 @@ function isNull(input){
 function comment_submit(){
     const replyContent = document.getElementById('layer_reply_content').innerText;
     const currentBoardIdx = document.getElementById('now_boardIdx').value;
-    fetch('http://localhost:8889/api/social/comment_create',{
+    fetch('http://3.34.214.103:8889/api/social/comment_create',{
         method:"POST",
         headers:{"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -112,7 +112,7 @@ function comment_close(){
 }
 
 function comment_delete(replyIdx){
-    fetch('http://localhost:8889/api/social/comment_delete/' + replyIdx, {
+    fetch('http://3.34.214.103:8889/api/social/comment_delete/' + replyIdx, {
         method: "DELETE"
     }).then((res) =>{
             window.location.reload();
@@ -141,7 +141,7 @@ window.onload = function(){
 
 function deleteBoard(idx){
     console.log(idx);
-    fetch('http://localhost:8889/api/social/' + idx, {
+    fetch('http://3.34.214.103:8889/api/social/' + idx, {
         method: "DELETE"
     }).then((res) =>{
         window.location.reload();

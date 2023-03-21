@@ -119,7 +119,7 @@ function sendit(){
     const nameKor = document.getElementById("nameKor").value; // 상품명(kor)
     const size = document.getElementById("size").value; // 사이즈
     const img = document.getElementById("previewImg").src; // 상품사진
-    //     const img = img2.replaceAll("http://localhost:8889", "");
+    //     const img = img2.replaceAll("http://3.34.214.103:8889", "");
 
     // const img = document.querySelector("#previewImg"); // 상품사진
     // console.log(img);
@@ -160,7 +160,7 @@ function sendit(){
     }
 
 
-    fetch("http://localhost:8889/api/admin/products", {
+    fetch("http://3.34.214.103:8889/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -210,7 +210,7 @@ function productcreate_popdown(){
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // view
 function productview_popup(idx){
-    fetch("http://localhost:8889/api/admin/products/" + idx)
+    fetch("http://3.34.214.103:8889/api/admin/products/" + idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
@@ -243,7 +243,7 @@ function productview_popdown() {
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // edit
 function productedit_popup(idx){
-    fetch('http://localhost:8889/api/admin/products/'+idx)
+    fetch('http://3.34.214.103:8889/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
@@ -273,7 +273,7 @@ function productedit_popup(idx){
         const nameKor2 = document.getElementById('edit_nameKor').value;
         const size2 = document.getElementById('edit_size').value;
         const img = document.getElementById('previewImgEdit').src;
-            const img2 = img.replaceAll("http://localhost:8889", "");
+            const img2 = img.replaceAll("http://3.34.214.103:8889", "");
         const modelNum2 = document.getElementById('edit_modelNum').value;
         const releaseDate2 = document.getElementById('edit_releaseDate').value;
         const color2 = document.getElementById('edit_color').value;
@@ -285,7 +285,7 @@ function productedit_popup(idx){
         let co = document.getElementById('edit_collection');
         const collection2 = co.options[co.selectedIndex].value;
 
-        fetch('http://localhost:8889/api/admin/products/' + idx, {
+        fetch('http://3.34.214.103:8889/api/admin/products/' + idx, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -343,7 +343,7 @@ function productdelete_popup(idx){
 }
 
 function admindelete(idx){
-    fetch('http://localhost:8889/api/admin/products/'+idx, {
+    fetch('http://3.34.214.103:8889/api/admin/products/'+idx, {
         method: "DELETE"
     })
         .then((res) => {

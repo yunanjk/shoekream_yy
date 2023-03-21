@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("product") //http://localhost:8889/product
+@RequestMapping("product") //http://3.34.214.103:8889/product
 @RequiredArgsConstructor
 public class ProductPageController {
     @Autowired ProductApiLogicService productApiLogicService;
@@ -40,7 +40,7 @@ public class ProductPageController {
     private final Logger logger = LoggerFactory.getLogger(ProductPageController.class.getName());
 
 
-    @GetMapping(path="/{idx}") //http://localhost:8889/product/{idx}
+    @GetMapping(path="/{idx}") //http://3.34.214.103:8889/product/{idx}
     public String product(@PathVariable Long idx, ModelMap modelmap, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
 
         Header<ProductApiResponse> product = productApiLogicService.read(idx);

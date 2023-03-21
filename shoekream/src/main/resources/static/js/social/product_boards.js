@@ -1,7 +1,7 @@
 window.onload=function(){
     const productIdx = document.getElementById('wish_proIdx').getAttribute('value');
     // console.log(productIdx);
-    fetch("http://localhost:8889/api/social/products/mini/"+productIdx)
+    fetch("http://3.34.214.103:8889/api/social/products/mini/"+productIdx)
         .then((res)=>res.json())
         .then((data)=>{
             console.log(data)

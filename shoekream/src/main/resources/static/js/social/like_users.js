@@ -7,7 +7,7 @@ function like_users_pop_down(){
 
 function pop_like(idx){
     console.log('in')
-    fetch("http://localhost:8889/api/social/likes/" + idx)
+    fetch("http://3.34.214.103:8889/api/social/likes/" + idx)
         .then((response) => response.json())
         .then((members) => {
             console.log(members)

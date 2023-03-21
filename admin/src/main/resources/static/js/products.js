@@ -141,7 +141,7 @@ function sendit(){
     const nameKor = document.getElementById("nameKor").value; // 상품명(kor)
     const size = document.getElementById("size").value; // 사이즈
     // const img2 = document.getElementById("previewImg").value; // 상품사진
-    //     const img = img2.replaceAll("http://localhost:8899", "");
+    //     const img = img2.replaceAll("http://3.34.214.103:8899", "");
     const img = document.getElementById("previewImg").value;
     const modelNum = document.getElementById("modelNum").value; // 모델번호
     const releaseDate = document.getElementById("releaseDate").value; // 출시일
@@ -177,7 +177,7 @@ function sendit(){
         return false;
     }
 
-    fetch("http://localhost:8899/api/admin/products", {
+    fetch("http://3.34.214.103:8899/api/admin/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -228,7 +228,7 @@ function productcreate_popdown(){
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // view
 function productview_popup(idx){
-    fetch("http://localhost:8899/api/admin/products/" + idx)
+    fetch("http://3.34.214.103:8899/api/admin/products/" + idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
@@ -261,7 +261,7 @@ function productview_popdown() {
 // ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 // edit
 function productedit_popup(idx){
-    fetch('http://localhost:8899/api/admin/products/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             // console.log(data);
@@ -293,10 +293,10 @@ function productedit_popup(idx){
         let img2="";
         if(document.getElementById('previewImgEdit').value == null){
             const img = document.getElementById('previewImgEdit').src;
-            img2 = img.replaceAll("http://localhost:8899", "");
+            img2 = img.replaceAll("http://3.34.214.103:8899", "");
         }else {
             const img = document.getElementById('previewImgEdit').value;
-            img2 = img.replaceAll("http://localhost:8899", "");
+            img2 = img.replaceAll("http://3.34.214.103:8899", "");
         }
         const modelNum2 = document.getElementById('edit_modelNum').value;
         const releaseDate2 = document.getElementById('edit_releaseDate').value;
@@ -309,7 +309,7 @@ function productedit_popup(idx){
         let co = document.getElementById('edit_collection');
         const collection2 = co.options[co.selectedIndex].value;
 
-        fetch('http://localhost:8899/api/admin/products/' + idx, {
+        fetch('http://3.34.214.103:8899/api/admin/products/' + idx, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -370,7 +370,7 @@ function productdelete_popup(idx){
 
 
 function admindelete(idx){
-    fetch('http://localhost:8899/api/admin/products/'+idx, {
+    fetch('http://3.34.214.103:8899/api/admin/products/'+idx, {
         method: "DELETE"
     })
         .then((res) => {
@@ -406,7 +406,7 @@ function search_products(){
 }
 
 function href_buyList(idx) {
-    fetch('http://localhost:8899/api/admin/products/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let name = data.data.name
@@ -415,7 +415,7 @@ function href_buyList(idx) {
 
 }
 function href_sellList(idx) {
-    fetch('http://localhost:8899/api/admin/products/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/products/'+idx)
         .then((response) => response.json())
         .then((data) => {
             let name = data.data.name

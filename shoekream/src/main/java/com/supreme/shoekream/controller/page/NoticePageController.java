@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("") // http://localhost:8889/
+@RequestMapping("") // http://3.34.214.103:8889/
 @RequiredArgsConstructor
 public class NoticePageController {
     private final NoticeService noticeService;
-    @GetMapping(path="faq")   //http://localhost:8889/faq
+    @GetMapping(path="faq")   //http://3.34.214.103:8889/faq
     public ModelAndView faq(){
         return new ModelAndView("notice/faq");
     }
 
-    @GetMapping(path="auth_policy")   //http://localhost:8889/auth_policy
+    @GetMapping(path="auth_policy")   //http://3.34.214.103:8889/auth_policy
     public ModelAndView auth_policy(){
         return new ModelAndView("notice/auth_policy");
     }
 
-    @GetMapping(path="notice")   //http://localhost:8889/notice
+    @GetMapping(path="notice")   //http://3.34.214.103:8889/notice
     public String notice(ModelMap map,@PageableDefault(size = 20, sort = "idx", direction = Sort.Direction.DESC) Pageable pageable){
         map.addAttribute("notices",noticeService.list(pageable));
         return"notice/notice";

@@ -19,7 +19,7 @@ import java.io.File;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/my/profile") // localhost:8889/api/my/profile
+@RequestMapping("/api/my/profile") // 3.34.214.103:8889/api/my/profile
 public class ProfileApiController {
     private final MemberApiLogicService memberApiLogicService;
 
@@ -50,7 +50,7 @@ public class ProfileApiController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     // 첨부 파일 업로드
-    @PostMapping("/modify_img") // http://localhost:8889/api/my/profile/modify_img
+    @PostMapping("/modify_img") // http://3.34.214.103:8889/api/my/profile/modify_img
     public String uploadAjaxActionPOST(@RequestParam(value = "modify_img", required = false) MultipartFile uploadFile) {
         logger.info("⚠️uploadAjaxActionPOST..........");
         logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());

@@ -94,7 +94,7 @@ boxes.forEach((box) => {
 
 
 function delete_img(){
-    fetch("http://localhost:8889/api/my/profile/delete", {
+    fetch("http://3.34.214.103:8889/api/my/profile/delete", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -165,9 +165,9 @@ function readImage(input){
 
 function profileImgSend(){
     const img = document.getElementById("profile_img").value;
-    // const img = img2.replaceAll("http://localhost:8889", "");
+    // const img = img2.replaceAll("http://3.34.214.103:8889", "");
 
-    fetch("http://localhost:8889/api/my/changeUpload", {
+    fetch("http://3.34.214.103:8889/api/my/changeUpload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -271,7 +271,7 @@ function hpSendIt() {
 // 신발
 function shoeSendIt() {
     console.log(shoe2)
-    fetch('http://localhost:8889/api/my/profile', {
+    fetch('http://3.34.214.103:8889/api/my/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -301,7 +301,7 @@ function sendIt(data, type){
         case 'nickname' : nickname = data; break;
         case 'hp' : hp = data; break;
     }
-    fetch('http://localhost:8889/api/my/profile', {
+    fetch('http://3.34.214.103:8889/api/my/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

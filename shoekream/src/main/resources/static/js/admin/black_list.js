@@ -29,7 +29,7 @@ function submitBlackList(idx){
     console.log(reason)
     let reasonText = reason.options[reason.selectedIndex].text
     console.log(reasonText)
-    fetch('http://localhost:8889/api/blacklist/'+idx, {
+    fetch('http://3.34.214.103:8889/api/blacklist/'+idx, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

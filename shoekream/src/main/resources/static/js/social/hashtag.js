@@ -12,7 +12,7 @@ window.onload = function (){
 
     const hashtag = document.querySelector('.hashtag_text').innerHTML.trim().substring(1);
     console.log(hashtag);
-    fetch("http://localhost:8889/api/social/hashtag/"+hashtag)
+    fetch("http://3.34.214.103:8889/api/social/hashtag/"+hashtag)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)

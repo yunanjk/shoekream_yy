@@ -164,7 +164,7 @@ function sendit(){
     }
 
 
-    fetch("http://localhost:8899/api/admin/event", {
+    fetch("http://3.34.214.103:8899/api/admin/event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -208,7 +208,7 @@ function close_event_create(){
 function pop_event_view(idx){
     document.querySelector(".layer_event_view").style.display = "block";
 
-    fetch("http://localhost:8899/api/admin/event/" + idx)
+    fetch("http://3.34.214.103:8899/api/admin/event/" + idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
@@ -231,7 +231,7 @@ function close_event_view() {
 function pop_event_edit(idx){
     document.querySelector(".layer_event_edit").style.display = "block";
 
-    fetch('http://localhost:8899/api/admin/event/'+idx)
+    fetch('http://3.34.214.103:8899/api/admin/event/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
@@ -251,16 +251,16 @@ function sendedit(idx) {
     let img1 = "";
     if(document.getElementById('previewImgEdit').value == null){
         const img = document.getElementById('previewImgEdit').src;
-        img1 = img.replaceAll("http://localhost:8899", "");
+        img1 = img.replaceAll("http://3.34.214.103:8899", "");
     }else{
         const img = document.getElementById('previewImgEdit').value;
-        img1 = img.replaceAll("http://localhost:8899", "");
+        img1 = img.replaceAll("http://3.34.214.103:8899", "");
     }
     const startTime1 = document.querySelector('#e_startTime_input').value;
     const endTime1 = document.querySelector('#e_endTime_input').value;
 
 
-    fetch('http://localhost:8899/api/admin/event/' + idx, {
+    fetch('http://3.34.214.103:8899/api/admin/event/' + idx, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -310,7 +310,7 @@ function pop_event_delete(idx){
 
 
 function eventdelete(idx){
-    fetch('http://localhost:8899/api/admin/event/'+idx, {
+    fetch('http://3.34.214.103:8899/api/admin/event/'+idx, {
         method: "DELETE"
     })
         .then((res) => {
@@ -345,7 +345,7 @@ function pop_event_draw(idx){
     btn_draw.addEventListener('click', addPointEvent)
 }
 function eventdraw(idx){
-    fetch('http://localhost:8899/api/admin/event/'+idx, {
+    fetch('http://3.34.214.103:8899/api/admin/event/'+idx, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

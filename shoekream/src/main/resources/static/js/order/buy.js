@@ -936,7 +936,7 @@ function sendit() {
     const receiverHp = document.getElementById('receiverHp');
     const receiverAddress = document.getElementById('receiverAddress');
     card_info = "BC "+"****-****-****-"+ cardInfo.innerHTML
-    fetch('http://localhost:8889/api/order/buy', {
+    fetch('http://3.34.214.103:8889/api/order/buy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -71,7 +71,7 @@ function styleBoardSend(){
     const content = document.getElementById("content_input").value; // 게시글 내용
     const hashtag = document.getElementById("hashtag_input").value; // 해시태그 내용
     const img2 = document.getElementById("previewImage").value; // 게시글 사진
-        const img = img2.replaceAll("http://localhost:8889", "");
+        const img = img2.replaceAll("http://3.34.214.103:8889", "");
     let tags = document.getElementById('selected_product_list').childNodes; // 상품 태그
     let tagIds = '';// 상품태그들의 productIdx 목록. ','로 구분해 보낸 뒤 split해서 사용함
 
@@ -87,7 +87,7 @@ function styleBoardSend(){
         return false;
     }
 
-    fetch("http://localhost:8889/api/social/boardcreate", {
+    fetch("http://3.34.214.103:8889/api/social/boardcreate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

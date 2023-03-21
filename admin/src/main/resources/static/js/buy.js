@@ -13,7 +13,7 @@ function search_buy(){
  */
 function pop_buy_view(idx){
 
-    fetch('http://localhost:8899/api/order/buy/'+idx)
+    fetch('http://3.34.214.103:8899/api/order/buy/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -22,7 +22,7 @@ function pop_buy_view(idx){
                 matching_idx = "x"
                 document.querySelector('.layer_buy_view .sellIdx').innerHTML=matching_idx
             }else{
-                fetch('http://localhost:8899/api/order/sell/'+ matching_idx)
+                fetch('http://3.34.214.103:8899/api/order/sell/'+ matching_idx)
                     .then((response) => response.json())
                     .then((data2) => {
                         matching_idx = data2.memberEmail;
@@ -60,7 +60,7 @@ function close_buy_view(){
 function pop_buy_edit(idx){
     document.querySelector(".layer_buy_edit").style.display = "block";
     //미리 찍어줘야함
-    fetch('http://localhost:8899/api/order/buy/'+idx)
+    fetch('http://3.34.214.103:8899/api/order/buy/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -92,7 +92,7 @@ function sendedit(idx) {
     const ship_status = document.getElementById('ship_status')
     console.log(ship_status);
     console.log(ship_status.value);
-    fetch('http://localhost:8899/api/order/buy/'+idx, {
+    fetch('http://3.34.214.103:8899/api/order/buy/'+idx, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -134,7 +134,7 @@ function pop_buy_delete(idx){
     });
 }
 function buydelete(idx){
-    fetch('http://localhost:8899/api/order/buy/'+idx, {
+    fetch('http://3.34.214.103:8899/api/order/buy/'+idx, {
         method: "DELETE",
     })
         .then((res) => {

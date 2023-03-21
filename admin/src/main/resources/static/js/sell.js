@@ -9,7 +9,7 @@ function search_buy(){
 
 function layer_sell_view(idx){
 
-    fetch('http://localhost:8899/api/order/sell/'+idx)
+    fetch('http://3.34.214.103:8899/api/order/sell/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -18,7 +18,7 @@ function layer_sell_view(idx){
                 matching_idx = "x"
                 document.querySelector('.layer_sell_view .buyer').innerHTML=matching_idx;
             }else{
-                fetch('http://localhost:8899/api/order/buy/'+ matching_idx)
+                fetch('http://3.34.214.103:8899/api/order/buy/'+ matching_idx)
                     .then((response) => response.json())
                     .then((data2) => {
                         matching_idx = data2.memberEmail;
@@ -61,7 +61,7 @@ function pop_sell_delete(idx){
     });
 }
 function selldelete(idx){
-    fetch('http://localhost:8899/api/order/sell/'+idx, {
+    fetch('http://3.34.214.103:8899/api/order/sell/'+idx, {
         method: "DELETE",
     })
         .then((res) => {
@@ -89,7 +89,7 @@ function addPenalty(){
 function pop_penalty(idx){
     sellIdx =idx;
     document.querySelector(".layer_penalty").style.display = "block";
-    fetch('http://localhost:8899/api/order/sell/'+idx)
+    fetch('http://3.34.214.103:8899/api/order/sell/'+idx)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -110,7 +110,7 @@ function close_penalty(){
 function send_penalty(sellIdx){
     const reason = document.getElementById('panalty_reson');
 
-    fetch('http://localhost:8899/api/penalty', {
+    fetch('http://3.34.214.103:8899/api/penalty', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

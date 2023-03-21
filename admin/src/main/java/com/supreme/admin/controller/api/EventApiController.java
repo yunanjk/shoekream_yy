@@ -63,7 +63,7 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
     }
 
     // 첨부 파일 업로드
-    @PostMapping("/uploadFile")  //http://localhost:8899/api/admin/event/uploadFile
+    @PostMapping("/uploadFile")  //http://3.34.214.103:8899/api/admin/event/uploadFile
     public String uploadAjaxActionPOST(@RequestParam(value = "uploadFile", required = false) MultipartFile uploadFile) {
         logger.info("⚠️uploadAjaxActionPOST..........");
         logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());

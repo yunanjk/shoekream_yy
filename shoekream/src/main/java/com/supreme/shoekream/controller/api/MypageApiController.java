@@ -41,7 +41,7 @@ public class MypageApiController {
 
 //    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 //    // 첨부 파일 업로드(생성)
-//    @PostMapping("/my/imgUpload") // http://localhost:8889/api/my/imgUpload
+//    @PostMapping("/my/imgUpload") // http://3.34.214.103:8889/api/my/imgUpload
 //    public String uploadAjaxActionPOST(@RequestParam(value = "imgUpload", required = false) MultipartFile uploadFile) {
 //        logger.info("⚠️uploadAjaxActionPOST..........");
 //        logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
@@ -67,7 +67,7 @@ public class MypageApiController {
 //        return uploadFileName;
 //    }
 
-    @PostMapping("/my/changeUpload") // http://localhost:8889/api/my/changeUpload
+    @PostMapping("/my/changeUpload") // http://3.34.214.103:8889/api/my/changeUpload
     public Header<MemberApiResponse> profileImgUpdate(@RequestBody Header<MemberApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
         MemberApiRequest memberApiRequest = request.getData();
         MemberDTO memberDTO = memberApiRequest.toDTO();

@@ -1,7 +1,7 @@
 function wishCreate(product_idx) {
     // console.log(proIdx);
     if(document.querySelector('#username') !=null){
-        fetch("http://localhost:8889/api/product", {
+        fetch("http://3.34.214.103:8889/api/product", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -30,7 +30,7 @@ function wishCreate(product_idx) {
 
 function wishDelete(product_idx) {
     if(document.querySelector('#username') !=null) {
-        fetch('http://localhost:8889/api/product/' + product_idx, {
+        fetch('http://3.34.214.103:8889/api/product/' + product_idx, {
             method: "DELETE"
         })
             .then((res) => {

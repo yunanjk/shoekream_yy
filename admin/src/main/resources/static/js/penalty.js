@@ -1,6 +1,6 @@
 function pop_penalty_view(idx){
     document.querySelector('.pop_penalty_view').style.display="block";
-    fetch('http://localhost:8899/api/penalty/'+idx)
+    fetch('http://3.34.214.103:8899/api/penalty/'+idx)
         .then((res)=>res.json())
         .then(data=>{
             console.log(data.productName)
@@ -30,7 +30,7 @@ function delete_penalty(idx){
     })
 }
 function delete_func(idx){
-    fetch('http://localhost:8899/api/penalty/'+idx,{
+    fetch('http://3.34.214.103:8899/api/penalty/'+idx,{
         method:"DELETE"
     }).then((res)=>{
         alert('삭제 완료');

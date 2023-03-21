@@ -7,7 +7,7 @@ window.onload = function(){
     item.classList.add('gnb_on');
 
 
-    fetch("http://localhost:8889/api/social/myprofile")
+    fetch("http://3.34.214.103:8889/api/social/myprofile")
         .then((response) => response.json())
         .then((profile) => {
             console.log(profile);
@@ -28,7 +28,7 @@ window.onload = function(){
 
             const memberIdx = profile.idx;
 
-            fetch("http://localhost:8889/api/social/isBoardExist/"+ memberIdx)
+            fetch("http://3.34.214.103:8889/api/social/isBoardExist/"+ memberIdx)
                 .then((res) => res.json())
                 .then((dat) => {
                     // console.log(res)

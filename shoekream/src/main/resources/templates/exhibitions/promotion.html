@@ -117,7 +117,7 @@
     };
 
     const eventIdx = document.querySelector('.hidden_value').getAttribute("value");
-    fetch('http://localhost:8889/api/admin/event/' +eventIdx )
+    fetch('http://3.34.214.103:8889/api/admin/event/' +eventIdx )
         .then((response) => response.json())
         .then((data) => {
             let startTime = data.startTime;

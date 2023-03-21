@@ -47,7 +47,7 @@ public class SocialPageController {
     private final SellService sellService;
 
 
-    @GetMapping(path="/social")    // http://localhost:8889/social
+    @GetMapping(path="/social")    // http://3.34.214.103:8889/social
     public ModelAndView trending(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
         Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_trend(pageable);
@@ -58,7 +58,7 @@ public class SocialPageController {
     }
 
 
-    @GetMapping(path = "/social/newest")   // http://localhost:8889/social/newest
+    @GetMapping(path = "/social/newest")   // http://3.34.214.103:8889/social/newest
     public ModelAndView newest(ModelMap map, @PageableDefault(size = 12)Pageable pageable){
         map.addAttribute("trendHashtags", styleLogicService.trendHashtags());
         Page<BoardWithLikeListResponse> boards = styleLogicService.unlog_newest(pageable);
@@ -69,7 +69,7 @@ public class SocialPageController {
     }
 
 
-    @GetMapping(path = "/social/following")    // http://localhost:8889/social/following
+    @GetMapping(path = "/social/following")    // http://3.34.214.103:8889/social/following
     public String following(@AuthenticationPrincipal KreamPrincipal kreamPrincipal, ModelMap map){
         MemberDTO sessionMember = kreamPrincipal.toFullDto();
         map.addAttribute("feed", styleLogicService.getFollowingFeeds(sessionMember.idx()));
@@ -79,7 +79,7 @@ public class SocialPageController {
 
     }
 
-    @GetMapping(path = "/social/myprofile")        // http://localhost:8889/social/myprofile
+    @GetMapping(path = "/social/myprofile")        // http://3.34.214.103:8889/social/myprofile
     public ModelAndView myprofile(ModelMap map, @AuthenticationPrincipal KreamPrincipal kreamPrincipal){
         List<FollowDTO> followings = styleLogicService.countFollowing(kreamPrincipal.idx());
         List<FollowDTO> followers = styleLogicService.countFollowers(kreamPrincipal.idx());
@@ -89,13 +89,13 @@ public class SocialPageController {
         return new ModelAndView("social/myprofile");
     }
 
-    @GetMapping(path = "/social/style_profile_edit")   // http://localhost:8889/social/style_profile_edit
+    @GetMapping(path = "/social/style_profile_edit")   // http://3.34.214.103:8889/social/style_profile_edit
     public ModelAndView style_profile_edit(){ return new ModelAndView("social/style_profile_edit"); }
 
-//    @GetMapping(path = "/social/social_product")   // http://localhost:8889/social/style_profile_edit
+//    @GetMapping(path = "/social/social_product")   // http://3.34.214.103:8889/social/style_profile_edit
 //    public ModelAndView style_profilsocial_producte_edit(){ return new ModelAndView("social/social_product"); }
 
-    @GetMapping(path = "/social/users")   // http://localhost:8889/social/style_profile_edit
+    @GetMapping(path = "/social/users")   // http://3.34.214.103:8889/social/style_profile_edit
     public ModelAndView users(){ return new ModelAndView("social/users"); }
 
     @GetMapping(path = "/social/upload")

@@ -284,7 +284,7 @@ function submit_account() {
   if (!submitButton.classList.contains('disabled')) {
     let bankName = document.querySelector('#input_bank').placeholder
     let accNum = document.querySelector('#input_acc').value
-    fetch('http://localhost:8889/api/my/account', {
+    fetch('http://3.34.214.103:8889/api/my/account', {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -952,7 +952,7 @@ function sendit() {
   const senderHp = document.getElementById('senderHp');
   const senderAddress = document.getElementById('senderAddress');
   card_info = "BC "+"****-****-****-"+ cardInfo.innerHTML
-  fetch('http://localhost:8889/api/order/sell', {
+  fetch('http://3.34.214.103:8889/api/order/sell', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

@@ -40,14 +40,14 @@ function like_clicked(boardIdx, size, lk){
             // console.log(size)
 
             if(ch[1].getAttribute('src')=='/img/styleImg/like_icon.png'){
-                fetch("http://localhost:8889/api/social/like/" + boardIdx)
+                fetch("http://3.34.214.103:8889/api/social/like/" + boardIdx)
                     .then(()=>{
                         ch[1].setAttribute('src','/img/styleImg/like_after_icon.png');
                         // ch[2].innerHTML= Number(size) + 1;
                         ch[2].innerHTML= likecnt + 1;
                     })
             }else{
-                fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
+                fetch("http://3.34.214.103:8889/api/social/unlike/" + boardIdx)
                     .then(()=>{
                         ch[1].setAttribute('src','/img/styleImg/like_icon.png');
                         if(ch[2].innerHTML= Number(size) == 0){
@@ -77,14 +77,14 @@ function like_clicked_follow(boardIdx, size, lk){
     const ch=lk.childNodes;
 
     if(ch[1].getAttribute('src')=='/img/styleImg/like_icon.png'){
-        fetch("http://localhost:8889/api/social/like/" + boardIdx)
+        fetch("http://3.34.214.103:8889/api/social/like/" + boardIdx)
             .then(()=>{
                 ch[1].setAttribute('src','/img/styleImg/like_after_icon.png');
                 // ch[2].innerHTML= Number(size) + 1;
                 document.getElementById('likeid_'+boardIdx).innerHTML = Number(size) + 1;
             })
     }else{
-        fetch("http://localhost:8889/api/social/unlike/" + boardIdx)
+        fetch("http://3.34.214.103:8889/api/social/unlike/" + boardIdx)
             .then(()=>{
                 ch[1].setAttribute('src','/img/styleImg/like_icon.png');
                 // ch[2].innerHTML= Number(size);
@@ -112,7 +112,7 @@ function open_profile(memberEmail, memberIdx){
 }
 
 function profileCheck(memberIdx){
-    fetch("http://localhost:8889/api/social/profileCheck/"+memberIdx)
+    fetch("http://3.34.214.103:8889/api/social/profileCheck/"+memberIdx)
         .then((res) => res.json())
         .then((data) => {
             console.log(data);

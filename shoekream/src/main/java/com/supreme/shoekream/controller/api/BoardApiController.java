@@ -39,7 +39,7 @@ public class BoardApiController {
     private final StyleLogicService styleLogicService;
     private final BoardRepository boardRepository;
 
-    @GetMapping("{idx}")    // http://localhost:8889/api/social
+    @GetMapping("{idx}")    // http://3.34.214.103:8889/api/social
     public BoardDTO read(@PathVariable(name="idx") Long idx){
         return BoardDTO.fromEntity(styleLogicService.read(idx));
     }
@@ -181,7 +181,7 @@ public class BoardApiController {
     private final MemberRepository memberRepository;
 
     // 첨부 파일 업로드(생성)
-    @PostMapping("/imgUpload") // http://localhost:8889/api/social/imgUpload
+    @PostMapping("/imgUpload") // http://3.34.214.103:8889/api/social/imgUpload
     public String uploadAjaxActionPOST(@RequestParam(value = "imgUpload", required = false) MultipartFile uploadFile) {
         logger.info("⚠️uploadAjaxActionPOST..........");
         logger.info("⚠️파일 이름 : " + uploadFile.getOriginalFilename());
@@ -206,7 +206,7 @@ public class BoardApiController {
         return uploadFileName;
     }
 
-    @PostMapping("/boardcreate") // http://localhost:8889/api/social/boardcreate
+    @PostMapping("/boardcreate") // http://3.34.214.103:8889/api/social/boardcreate
     public BoardStyleApiResponse board_create(@RequestBody Header<BoardStyleApiRequest> request, @AuthenticationPrincipal KreamPrincipal kreamPrincipal) {
         return styleLogicService.create(request, kreamPrincipal.toFullDto());
     }
