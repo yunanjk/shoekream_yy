@@ -57,7 +57,8 @@ public class ProfileApiController {
         logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
         logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 파일 저장 폴더 경로
-        String uploadFilePath = "/Users/oyun-yeong/img"; // 로컬주소 -> img폴더 생성한것
+//        String uploadFilePath = "/Users/oyun-yeong/img"; // 로컬주소 -> img폴더 생성한것
+        String uploadFilePath = "/home/ec2-user/oyy_project_kream/img"; // 로컬주소 -> img폴더 생성한것
         // 폴더 생성
         File uploadPath = new File(uploadFilePath);
         if(!uploadPath.exists()) {
