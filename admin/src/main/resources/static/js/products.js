@@ -201,7 +201,7 @@ function sendit(){
         }),
     })
         .then((res) => {
-            //alert("상품 등록 성공!")
+            alert("상품 등록 성공!")
             location.reload();
             return;
         })

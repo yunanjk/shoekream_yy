@@ -70,7 +70,8 @@ public class EventApiController extends CrudController<EventApiRequest, EventDTO
         logger.info("⚠️파일 타입 : " + uploadFile.getContentType());
         logger.info("⚠️파일 크기 : " + uploadFile.getSize());
         // 파일 저장 폴더 경로
-        String local = "/Users/oyun-yeong/img";
+//        String local = "/Users/oyun-yeong/img";
+        String local = "/home/ec2-user/oyy_project_kream/img";
         // 폴더 생성
         File uploadPath = new File(local);
         if(!uploadPath.exists()) {
